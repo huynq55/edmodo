@@ -100,9 +100,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'EdmodoLibrary.urls'
+ROOT_URLCONF = 'edmodo.urls'
 
-TEMPLATE_DIRS = ('K:/EdmodoLibrary/templates',)
+TEMPLATE_DIRS = ('K:/edmodo//templates',)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -115,7 +115,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-    'EdmodoLibrary.Library',
 )
 
 # A sample logging configuration. The only tangible logging
