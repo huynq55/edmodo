@@ -55,3 +55,9 @@ def register(request):
         'registration/register.html',
         variables
     )
+
+@login_required()
+def library(request):
+    t = loader.get_template('library.html')
+    c = Context({})
+    return HttpResponse(t.render(c))

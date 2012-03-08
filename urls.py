@@ -29,4 +29,5 @@ urlpatterns = patterns('',
     (r'^home/$', home),
     (r'^register/$', register),
     (r'^register/success/$', direct_to_template, {'template': 'registration/register_success.html'}),
+    (r'^library/v2/$', library)
 )
