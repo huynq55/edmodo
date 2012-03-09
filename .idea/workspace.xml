@@ -22,10 +22,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="register.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="register.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/registration/register.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="30" selection-start="125" selection-end="125" vertical-scroll-proportion="-1.9615384">
+            <state line="5" column="27" selection-start="162" selection-end="162" vertical-scroll-proportion="0.26397514">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register_success.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/registration/register_success.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="126" selection-start="276" selection-end="276" vertical-scroll-proportion="-2.6153846">
               <folding />
             </state>
           </provider>
@@ -49,10 +58,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nav.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="nav.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/nav.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="120" selection-end="120" vertical-scroll-proportion="0.1491228">
+            <state line="2" column="4" selection-start="46" selection-end="119" vertical-scroll-proportion="-1.3076923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="general-v2.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/site_media/general-v2.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="42" selection-start="1278" selection-end="1278" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -61,7 +79,25 @@
       <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="4" selection-start="86" selection-end="137" vertical-scroll-proportion="-1.9615384">
+            <state line="3" column="24" selection-start="106" selection-end="106" vertical-scroll-proportion="-1.9615384">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="library.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/library.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="4" selection-start="89" selection-end="123" vertical-scroll-proportion="-1.9615384">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="41" selection-start="67" selection-end="67" vertical-scroll-proportion="-0.65384614">
               <folding />
             </state>
           </provider>
@@ -97,16 +133,16 @@
         <option value="$PROJECT_DIR$/templates/registration/register_success.html" />
         <option value="$PROJECT_DIR$/site_media/styles.css" />
         <option value="$PROJECT_DIR$/site_media/niceforms-default.css" />
-        <option value="$PROJECT_DIR$/templates/registration/login.html" />
-        <option value="$PROJECT_DIR$/templates/registration/register.html" />
-        <option value="$PROJECT_DIR$/site_media/general-v2.css" />
-        <option value="$PROJECT_DIR$/templates/home.html" />
         <option value="$PROJECT_DIR$/library/views.py" />
         <option value="$PROJECT_DIR$/templates/library.html" />
         <option value="$PROJECT_DIR$/urls.py" />
         <option value="$PROJECT_DIR$/settings.py" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/nav.html" />
+        <option value="$PROJECT_DIR$/templates/home.html" />
+        <option value="$PROJECT_DIR$/templates/registration/login.html" />
+        <option value="$PROJECT_DIR$/site_media/general-v2.css" />
+        <option value="$PROJECT_DIR$/templates/registration/register.html" />
       </list>
     </option>
   </component>
@@ -447,23 +483,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/library.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="4" selection-start="89" selection-end="123" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="19" selection-start="1016" selection-end="1016" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/register_success.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="126" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.py">
@@ -493,27 +515,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/site_media/general-v2.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="14" selection-start="1300" selection-end="1301" vertical-scroll-proportion="-7.48">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="24" selection-start="178" selection-end="178" vertical-scroll-proportion="0.1446541">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="30" selection-start="125" selection-end="125" vertical-scroll-proportion="-1.9615384">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="62" column="34" selection-start="2015" selection-end="2015" vertical-scroll-proportion="0.0" />
@@ -526,9 +527,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home.html">
+    <entry file="file://$PROJECT_DIR$/templates/registration/register_success.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="4" selection-start="86" selection-end="137" vertical-scroll-proportion="-1.9615384">
+        <state line="4" column="126" selection-start="276" selection-end="276" vertical-scroll-proportion="-2.6153846">
           <folding />
         </state>
       </provider>
@@ -540,9 +541,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="24" selection-start="106" selection-end="106" vertical-scroll-proportion="-1.9615384">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/library.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="4" selection-start="89" selection-end="123" vertical-scroll-proportion="-1.9615384">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="41" selection-start="67" selection-end="67" vertical-scroll-proportion="-0.65384614">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/nav.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="120" selection-end="120" vertical-scroll-proportion="0.1491228">
+        <state line="2" column="4" selection-start="46" selection-end="119" vertical-scroll-proportion="-1.3076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site_media/general-v2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="42" selection-start="1278" selection-end="1278" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="27" selection-start="162" selection-end="162" vertical-scroll-proportion="0.26397514">
           <folding />
         </state>
       </provider>

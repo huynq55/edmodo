@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 {% block title %}User Registration{% endblock %}
+{% block css %}
+    <style type="text/css">
+        input {
+            display: block;
+        }
+    </style>
+{% endblock %}
 {% block content %}
     <h1>User Registration</h1>
     <form method="post" action="/register/">
