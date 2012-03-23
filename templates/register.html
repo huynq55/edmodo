@@ -1,12 +1,25 @@
 {% extends "main_page.html" %}
 {% block title %}User Registration{% endblock %}
-{% block head %}User Registration{% endblock %}
+{% block head %}{% endblock %}
 {% block content %}
-    <form id="register-form" method="post" action="/register/">
-        <table>
-            {% csrf_token %}
-            {{ form.as_table }}
-        </table>
-        <input type="submit" value="Register" />
-    </form>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="modal" style="position: relative; top: auto; left: auto; margin: 0 auto; z-index: 1">
+        <div class="modal-header">
+            <a href="#" class="close" data-dismiss="modal">×</a>
+            <div class="pull-center"> Model registration</div>
+        </div>
+        <div class="modal-body">
+            <form id="register-form" method="post" action="/register/">
+                <table>
+                    {% csrf_token %}
+                    {{ form.as_table }}
+                </table>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-primary" value="Register" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
 {% endblock %}

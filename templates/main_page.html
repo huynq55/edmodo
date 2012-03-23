@@ -135,7 +135,7 @@
                             </div>
                             <div class="modal-body">
 
-                                <form id="register-form" method="post" action="/">
+                                <form id="register-form" method="post" action="/register/">
                                     <table>
                                         {% csrf_token %}
                                         {{ form.as_table }}
@@ -144,12 +144,12 @@
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <input type="submit" class="btn" value="Sign up" />
+                                <input type="submit"  class="btn" value="Sign up" />
 
                                 <a href="#" class="btn" data-dismiss="modal">Close</a>
                             </div>
                         </div>
-                        <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">Register</a>
+                        <a data-toggle="modal" href="/register/" class="btn btn-primary btn-large">Register</a>
                     </div>
                 </div>
             </div>
