@@ -1,0 +1,285 @@
+/***************************Global***************************/
+body, html { height: 100%; }
+body {
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 76%;
+    margin: 0;
+    padding: 0;
+    background: #000 url(../img/library_background.jpg) no-repeat 50% 0;
+    text-align: center;
+    color: #fff;
+}
+
+/* headers */
+h2, h3, h4, h5, h6 { color: #ffc; margin: 0; font-weight: normal; }
+h2 { font-size: 2.5em; padding: 30px 0; }
+h3 { font-size: 2.1em; padding: 25px 0; }
+h4 { font-size: 1.7em; padding: 20px 0; }
+h5 { font-size: 1.4em; padding: 15px 0; }
+h6 { font-size: 1.2em; padding: 10px 0 0; }
+
+/* text */
+p { font-size: 1.2em; line-height: 1.5em; margin: 0 0 20px; }
+acronym { cursor: help; }
+code { font-size: 1.5em !important; margin: 0 0 20px; border: 1px dashed #333; padding: 10px; display: block; background-color: #111; color: #ffc; }
+blockquote { font-family: Georgia, "Times New Roman", Times, serif; margin: 0 0 20px; border: 1px solid #333; padding: 15px 15px 0 15px; display: block; background-color: #111; }
+blockquote p { margin-bottom: 15px; }
+
+/* links */
+a { text-decoration: none; color: #ff9; }
+a:hover { text-decoration: none; }
+
+/* images */
+img { border: 5px solid #333; margin: 0 10px 10px 0; }
+a img { border: 5px solid #2F1C07; }
+a:hover img { border-color: #50300C; }
+img.right { margin-left: 10px; }
+
+/* lists */
+ul, ol, dl, table, blockquote, code { font-size: 1.2em; }
+ul, ol, dl { margin: 0 0 30px; padding: 0 0 0 25px; }
+ul ul { font-size: 1em; margin: 0; }
+ol ol { font-size: 1em; margin: 0; }
+dl { padding: 0; }
+dl dt { font-weight: bold; }
+
+
+/* tables */
+table { margin: 0 0 30px; border: 1px solid #333; }
+table th, table td { padding: 10px; text-align: left; color: #fff; }
+table th { background-color: #222; }
+
+/* horizontal rule */
+hr { border: 0; height: 1px; background-color: #333; color: #333; margin: 30px 0 0; }
+
+
+
+/*------------------------------------------------------------*
+**  Container
+**------------------------------------------------------------*/
+#container {
+	margin: 0 auto;
+	width: 860px;
+	text-align: left;
+	min-height: 100%;
+	/*height: auto !important;*/
+	height: 100%;
+	}
+
+/*------------------------------------------------------------*
+**  Account Menu
+**------------------------------------------------------------*/
+#account_menu ul{
+    float:right;
+    margin: 10px 30px 10px;
+}
+#account_menu ul li{
+    display: inline;
+    font-size: 1.2em;
+}
+
+/*------------------------------------------------------------*
+**  Header
+**------------------------------------------------------------*/
+#header { 
+	position: relative;
+	padding: 40px 0; 
+	}
+
+/* logo */
+#header h1 {
+	font-size: 3.2em;
+	font-weight: normal;
+	margin: 0;
+	}
+#header h1 a { color: #ffc; }
+/*#header h1 a:hover { text-decoration: none; }*/
+
+/* if you want to replace the logo with 
+an image, comment out the above logo code and
+uncomment the following */
+/* 
+#header h1 {
+	background: url(../img/logo.gif) no-repeat;
+	width: [your-logo-width-here]px;
+	height: [your-logo-height-here]px;	
+	margin: 0;
+	}	
+#header h1 a {
+	display: block;
+	height: 100%;
+	text-indent: -9999px;
+	outline: none;
+	}
+*/	
+
+/* Search */
+#header form {
+	position: absolute;
+	top: 45px;
+	right: 0;
+	margin: 0;
+	}
+#header form p { margin: 0; }
+#header form input {
+	padding: 11px 5px;
+	font-size: 1.2em;
+	background-color: #000;
+	color: #ccc;
+	border: 0;
+	width: 225px;
+	}
+#header form input.btn {
+	width: auto;
+	padding: 7px 5px;
+	border: 3px solid #000;
+	background-color: #333;
+	line-height: 16px;
+	}
+
+/*------------------------------------------------------------*
+**  Navigation
+**------------------------------------------------------------*/ 
+#header ul {
+	background-color: #2F1C07;
+	list-style-type: none;
+	margin: 40px 0 0;
+	width: 100%;
+	padding: 10px 0;
+	}
+#header ul:after {
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+	}
+#header ul li {
+	float: left;
+	margin: 0 9px;
+	font-size: 1.2em;
+	}
+#header ul li a {
+	display: block;
+	padding: 10px 33px;
+	}
+#header ul li a.on {
+	text-decoration: none;
+	background-color: #50300C;
+	}
+	
+/*------------------------------------------------------------*
+**  Content
+**------------------------------------------------------------*/ 
+#content {
+	/*background-color: #000;*/
+    background-color:rgba(0,0,0,0.6);
+	padding: 0 10px 100px 10px;
+	height: 100%;
+	}
+#content:after {
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+	}
+/* the following enables you to add content 
+directly into the content div for a one 
+column layout while still adding the 
+correct margins. */
+/*
+#content * { margin-right: 20px; }
+#content div { margin-right: 0; }
+#content div * { margin-right: 0; }
+*/
+span, em, strong, acronym, del, label, input, select, textarea, a { margin: 0 !important; }
+
+/* left column formatting */
+#content #left {
+	width: 400px;
+	margin-right: 20px;
+    margin-top:10px;
+	float: left;
+	}	
+
+/* right column formatting */	
+#content #right {
+	float: right;
+	width: 400px;
+	background: url(../img/subnav_.jpg) repeat-x;
+	min-height: 400px;
+	margin-top: 10px;
+	/*padding: 0 20px 20px;*/
+	}
+* html #content #right { height: 322px; }
+
+
+/* generic content */
+#content p.info {
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
+	padding: 10px 0;
+	position: relative;
+	height: 1%;
+	}	
+#content p.info a.cmt {	
+	position: absolute;
+	right: 0;
+	top: 10px;
+	}
+#content p.info a.cmt br { display: none; }	
+	
+#content ul.links {
+	margin: 0 0 30px;
+	padding: 0;
+	list-style-type: none;
+	font-size: 1.2em;
+	}	
+#content ul.links li {
+	border-bottom: 1px solid #333;
+	}
+#content ul.links li a {
+	display: block;
+	height: 1%;
+	padding: 12px;
+	}
+#content ul.links li a:hover {
+	background-color: #111;
+	}
+		
+#content ul.images {
+	margin: 0 0 20px;
+	padding: 0;
+	list-style-type: none;
+	height: 1%;
+	}
+#content ul.images:after {
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+	}	
+#content ul.images li {
+	float: left;
+	margin: 0 11px 11px 0;
+	}		
+
+/*------------------------------------------------------------*
+**  Footer
+**------------------------------------------------------------*/ 
+#footer {
+	margin-top: -83px;
+	text-align: left;
+	}
+#footer div {
+	color: #ACA47D;
+	background-color: #2F1C07;
+	margin: 0 auto;
+	width: 720px;
+	padding: 30px;
+	}
+#footer p { margin: 0; position: relative; }
+#footer p span	{ position: absolute; right: 0; }
+* html #footer p span { right: 30px; }

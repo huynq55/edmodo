@@ -1,10 +1,53 @@
 <html>
-    <head>
-        <title>Edmodo | {% block title %}{% endblock %}</title>
-        <link rel="shortcut icon" href="/site_media/favicon.ico">
-        {% block css %}{% endblock %}
-    </head>
-    <body>
-        {% block content %}{% endblock %}
-    </body>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/site_media/css/bootstrap.css" type="text/css" />
+    <link rel ="stylesheet" href="/site_media/css/style1.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="/site_media/css/general-v2.css">
+    <script type="text/javascript" src="/site_media/javascript/jquery.js"></script>
+    {% block external %}{% endblock %}
+</head>
+<body>
+    <div class="nav pull-right">
+        {% block content123 %}
+        {% endblock %}
+        {% if user.is_authenticated %}
+            Welcome {{user.username}}
+            <a href = "/save/"> submit</a>
+            <a href ="/user/{{user.username}}">
+                {{user.username}}
+            </a>
+            (<a href="/logout"> Logout</a>)
+        {% endif %}
+    </div>
+    {% block head %}{% endblock %}
+    {% block content %}{% endblock %}
+    <div class="well">
+        <div id="footer">
+            <div id = "fixed-width" >
+                <div id="footer_links">
+                    <div id="footer_links">
+                        <ul>
+                            <li class="first"><a href="/">Copyright Statement</a></li>
+                            <li><a href="/">Privacy Policy</a></li>
+                            <li><a href="/">Site
+                                Help</a></li>
+                            <li class="last"><a href="/">Site Index</a></li>
+                        </ul>
+                    </div>
+                    <div id="footer-copyright">© 1997–2012 Glory Library Association</div>
+                </div>
+                <div class="contact">
+                    <h2><img src="/site_media/img/user_images/edmodo-logo.png"
+                             alt="American Library Association" width="192" height="13"></h2>
+
+                    <p>144 Xuan Thuy St., Cau giay district, Ha Noi, VN |
+                        <span class="skype_pnh_print_container_1332123927">1.800.545.2433</span><span
+                                class="skype_pnh_container" dir="ltr" tabindex="-1"><span class="skype_pnh_mark"></span></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 </html>

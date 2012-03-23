@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Upload Page</title>
+</head>
+<body>
+    <h2>Select the file to upload</h2>
+    <form enctype="multipart/form-data" method="post" action=".">
+        <table id="upload_table">
+            {% csrf_token %}
+            {{ form.as_table }}
+            {# input phai nam trong form #}
+        </table>
+        <input type="submit" value="Upload"/>
+    </form>
+    Status{{ status }}
+</body>
+</html>

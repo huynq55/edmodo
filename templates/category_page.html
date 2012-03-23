@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}{{ category.name }}{% endblock %}
+{% block content %}
+    <form class="filter-form" method="post" action=".">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <input type="submit" value="Filter"/>
+    </form>
+    <h1>{{ category.name }}</h1>
+    {{ status }}
+    {% for book in current_page_books.object_list %}
+        {# This is where we display book's information #}
+        <div class="book_slot">
+            <div class="main_info">
+                {{ book.title }}<br/>
+            </div>
+            <div class="sub_info">
+                Shared by:{{ book.uploader }}
+                Uploaded date:{{ book.upload_date.now }}
+                Readers:{{ book.read_count }}
+            </div>
+        </div>
+    {% endfor %}
+    {% if show_paginator %}
+        <div class="paginator">
+            {% if has_prev %}
+                <a href="?page={{ prev_page }}">&laquo; Previous</a>
+            {% endif %}
+            {% if has_next %}
+                <a href="?page={{ next_page }}">Next &raquo;</a>
+            {% endif %}
+            (Page {{ page }} of {{ pages }})
+        </div>
+    {% endif %}
+{% endblock %}

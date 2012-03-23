@@ -1,0 +1,1364 @@
+html, body, div, p, form, fieldset, legend, label, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
+    font: 12px 'Helvetica Neue', 'Nimbus Sans L', Arial, Helvetica, sans-serif;
+    letter-spacing: .2px;
+    color: #444;
+    margin: 0;
+    padding: 0;
+}
+
+html, body, input, textarea {
+    background: #fff;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th, td {
+    text-align: left;
+    vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+img {
+    border: 0;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+input, select {
+    vertical-align: middle;
+}
+
+pre, code {
+    font-family: monospace, sans-serif;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    padding: 15px;
+}
+
+textarea {
+    overflow: auto;
+    resize: none;
+}
+
+input, textarea {
+    outline: none;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+a:hover, a:active {
+    outline: none;
+}
+
+li, ul, ol {
+    list-style: none;
+    list-style-image: none;
+    margin: 0;
+    padding: 0;
+}
+
+label, input[type="button"], input[type="submit"], input[type="image"], button {
+    cursor: pointer;
+}
+
+button {
+    width: auto;
+    overflow: visible;
+}
+
+::-moz-selection {
+    background: #B1D3E6;
+    color: #fff;
+}
+
+::selection {
+    background: #B1D3E6;
+    color: #fff;
+}
+
+.skipper {
+    position: absolute;
+    left: -1000px;
+    top: 0;
+}
+
+body {
+    *margin-top: 60px;
+}
+
+a, a:active, a:visited {
+    text-decoration: none;
+    color: #369;
+    cursor: pointer;
+    outline: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+input, textarea, select {
+    border: 1px solid #AACCE5;
+    padding: 3px;
+}
+
+input[type="submit"], input[type="button"], .eBtn {
+    background: #f4f4f4;
+    border: 1px solid #999;
+    cursor: pointer;
+    overflow: visible;
+    padding: 3px 5px;
+    color: #444;
+}
+
+#content {
+    width: 964px;
+    padding: 8px;
+    margin: 60px auto 0 auto;
+    background: url(http://images.edmodo.com/images/backgrounds/grey-texture.png);
+}
+
+.ie7 #content {
+    margin: 0 auto;
+}
+
+.contentWrap {
+    border: 1px solid #828B9C;
+    padding: 10px 7px;
+    background: #fff;
+}
+
+#content.ie8-compatibility {
+    margin: 60px auto 0 auto;
+}
+
+.codeDisplay {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    width: 500px;
+    background: #fff;
+    z-index: 1000;
+}
+
+.noSelect {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.hide {
+    display: none !important;
+}
+
+.show {
+    display: block !important;
+}
+
+.light-box-shadow {
+    -moz-box-shadow: 3px 3px 3px #ccc;
+    -webkit-box-shadow: 3px 3px 3px #ccc;
+    box-shadow: 3px 3px 3px #ccc;
+}
+
+.dark-box-shadow {
+    -moz-box-shadow: 5px 9px 8px #444;
+    -webkit-box-shadow: 5px 9px 8px #444;
+    box-shadow: 5px 9px 8px #444;
+}
+
+.nice-button {
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.nice-button:hover {
+    border-color: #000;
+    -moz-box-shadow: 3px 3px 3px #ccc;
+    -webkit-box-shadow: 3px 3px 3px #ccc;
+    box-shadow: 3px 3px 3px #ccc;
+}
+
+.nice-button:active {
+    background: #DDD;
+    border-color: #999;
+    text-decoration: none;
+    -moz-box-shadow: inset 0 5px 10px #999;
+    -webkit-box-shadow: inset 0 5px 10px #999;
+    box-shadow: inset 0 5px 10px #999;
+}
+
+.bgGrad {
+    background: #7A8692;
+    color: #FFF;
+}
+
+.bgGrad * {
+    color: #FFF;
+}
+
+.floatLt {
+    float: left;
+}
+
+.floatRt {
+    float: right;
+}
+
+.textareaWrap textarea {
+    width: 100%;
+}
+
+.textareaWrap {
+    padding-right: 8px;
+}
+
+.m5 {
+    margin: 5px;
+}
+
+.m10 {
+    margin: 10px;
+}
+
+.m15 {
+    margin: 15px;
+}
+
+.m20 {
+    margin: 20px;
+}
+
+.m25 {
+    margin: 25px;
+}
+
+.mTop5 {
+    margin-top: 5px;
+}
+
+.mTop10 {
+    margin-top: 10px;
+}
+
+.mTop15 {
+    margin-top: 15px;
+}
+
+.mTop20 {
+    margin-top: 20px;
+}
+
+.mTop25 {
+    margin-top: 25px;
+}
+
+.mRt5 {
+    margin-right: 5px;
+}
+
+.mRt10 {
+    margin-right: 10px;
+}
+
+.mRt15 {
+    margin-right: 15px;
+}
+
+.mRt20 {
+    margin-right: 20px;
+}
+
+.mRt25 {
+    margin-right: 25px;
+}
+
+.mBot5 {
+    margin-bottom: 5px;
+}
+
+.mBot10 {
+    margin-bottom: 10px;
+}
+
+.mBot15 {
+    margin-bottom: 15px;
+}
+
+.mBot20 {
+    margin-bottom: 20px;
+}
+
+.mBot25 {
+    margin-bottom: 25px;
+}
+
+.mLt5 {
+    margin-left: 5px;
+}
+
+.mLt10 {
+    margin-left: 10px;
+}
+
+.mLt15 {
+    margin-left: 15px;
+}
+
+.mLt20 {
+    margin-left: 20px;
+}
+
+.mLt25 {
+    margin-left: 25px;
+}
+
+.p5 {
+    padding: 5px;
+}
+
+.p10 {
+    padding: 10px;
+}
+
+.p15 {
+    padding: 15px;
+}
+
+.p20 {
+    padding: 20px;
+}
+
+.p25 {
+    padding: 25px;
+}
+
+.pTop5 {
+    padding-top: 5px;
+}
+
+.pTop10 {
+    padding-top: 10px;
+}
+
+.pTop15 {
+    padding-top: 15px;
+}
+
+.pTop20 {
+    padding-top: 20px;
+}
+
+.pTop25 {
+    padding-top: 25px;
+}
+
+.pRt5 {
+    padding-right: 5px;
+}
+
+.pRt10 {
+    padding-right: 10px;
+}
+
+.pRt15 {
+    padding-right: 15px;
+}
+
+.pRt20 {
+    padding-right: 20px;
+}
+
+.pRt25 {
+    padding-right: 25px;
+}
+
+.pBot5 {
+    padding-bottom: 5px;
+}
+
+.pBot10 {
+    padding-bottom: 10px;
+}
+
+.pBot15 {
+    padding-bottom: 15px;
+}
+
+.pBot20 {
+    padding-bottom: 20px;
+}
+
+.pBot25 {
+    padding-bottom: 25px;
+}
+
+.pLt5 {
+    padding-left: 5px;
+}
+
+.pLt10 {
+    padding-left: 10px;
+}
+
+.pLt15 {
+    padding-left: 15px;
+}
+
+.pLt20 {
+    padding-left: 20px;
+}
+
+.pLt25 {
+    padding-left: 25px;
+}
+
+.font10 {
+    font-size: 10px;
+}
+
+.font11 {
+    font-size: 11px;
+}
+
+.font13 {
+    font-size: 12px;
+}
+
+.font14 {
+    font-size: 14px;
+}
+
+input.eBtnBig, a.eBtnBig {
+    font-weight: bold;
+    background: #4778b5;
+    border: 1px solid #aacce5;
+    color: #fff;
+    padding: 3px 10px;
+}
+
+input.eBtnBig {
+    height: 32px;
+}
+
+.eMsg {
+    text-align: center;
+    margin: 0 auto 20px;
+    padding: 5px;
+    color: #444;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.eMsg .eCloseMsg {
+    color: #369;
+    font-size: 11px;
+    margin-left: 3px;
+}
+
+.eMsg.err {
+    background: #c00;
+    color: #fff;
+}
+
+.eMsg.errInline {
+    margin: 0;
+    color: #C00;
+}
+
+.eMsg.err .eCloseMsg {
+    color: #eee;
+}
+
+.eMsg.info {
+    background: #ffc;
+    border: 1px solid #FFD700;
+}
+
+.formerror {
+    color: #F00;
+    display: none;
+    padding: 5px 5px 1px 5px;
+}
+
+.clearfix:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.clear, .cb {
+    clear: both;
+    zoom: 1;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 13px;
+}
+
+h4 {
+    border-bottom: 3px solid #ddd;
+    color: #999;
+    padding-bottom: 4px;
+    overflow: auto;
+    margin-bottom: 8px;
+}
+
+h4 a, h4 p {
+    float: right;
+    display: inline;
+    margin-left: 5px;
+    font-weight: normal;
+}
+
+.lang-fr h4 a, .lang-fr h4 p {
+    margin-left: 3px;
+}
+
+h4 p a {
+    float: none;
+}
+
+.pin-wheel {
+    background: transparent url(http://images.edmodo.com/images/loading.gif) no-repeat center;
+}
+
+.lineSeparator {
+    border-bottom: 3px solid #ddd;
+    margin-bottom: 8px;
+}
+
+.x {
+    color: #c00;
+}
+
+.eIcon {
+    background: url(http://images.edmodo.com/images/v2/icons.png) no-repeat 0 0;
+    min-height: 16px;
+    max-height: 40px;
+    display: block;
+    padding-left: 22px;
+}
+
+.eIconDirect {
+    background-position: 0 -40px;
+}
+
+.eIconCon {
+    background-position: 0 -80px;
+}
+
+.eIconAlert {
+    background-position: 0 -120px;
+}
+
+.eIconWrite {
+    background-position: 0 -160px;
+}
+
+.eIconLateWrite {
+    background-position: 0 -1240px;
+}
+
+.eIconGrade {
+    background-position: 0 -1200px;
+}
+
+.eIconChalk {
+    background-position: 0 -200px;
+}
+
+.eIconFeed {
+    background-position: 0 -240px;
+}
+
+.eIconFile {
+    background-position: 0 -280px;
+}
+
+.eIconLink {
+    background-position: 0 -320px;
+}
+
+.eIconPoll {
+    background-position: 0 -360px;
+}
+
+.eIconMsg {
+    background-position: 0 -398px;
+}
+
+.eIconCal {
+    background-position: 0 -440px;
+}
+
+.eIconAddC {
+    background-position: 0 -480px;
+}
+
+.eIconCheck {
+    background-position: 0 -520px;
+}
+
+.eIconFollow {
+    background-position: 0 -560px;
+}
+
+.eIconFollowing {
+    background-position: 0 -600px;
+}
+
+.eIconFlag {
+    background-position: 0 -640px;
+}
+
+.eIconFlagRed {
+    background-position: 0 -680px;
+}
+
+.eIconSchool {
+    background-position: 0 -720px;
+}
+
+.eIconSearch {
+    background-position: 0 -760px;
+}
+
+.eIconSearchNav {
+    background-position: 5px -801px;
+}
+
+.eIconStudent {
+    background-position: 0 -840px;
+}
+
+.eIconTeacher {
+    background-position: 0 -880px;
+}
+
+.eIconMe {
+    background-position: 0 -920px;
+}
+
+.eIconUnchk {
+    background-position: 0 -960px;
+}
+
+.eIconChk {
+    background-position: 0 -1000px;
+}
+
+.eIconPChk {
+    background-position: 0 -1040px;
+}
+
+.eIconCancel {
+    background-position: 0 -1080px;
+}
+
+.eIconPencil {
+    background-position: 0 -1120px;
+}
+
+.eIconNewMembers {
+    background-position: 0 -1160px;
+}
+
+.eIconStoplight {
+    background-position: 0 -1369px;
+}
+
+.eIconBadge {
+    background: url(http://images.edmodo.com/images/icons/award_star_gold_3.png) no-repeat left;
+}
+
+.eIconQuiz {
+    background: url(http://images.edmodo.com/images/v2/quiz.png) no-repeat 0 -118px;
+}
+
+#nav {
+    background: #3265b0 url(/images/sprites/nav1.png) repeat-x 0 -53px;
+    border-bottom: 2px solid #eee;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 98;
+}
+
+#navWrap {
+    max-width: 980px;
+    min-width: 764px;
+    height: 37px;
+    position: relative;
+    margin: auto;
+}
+
+#logo {
+    background: transparent url(/images/sprites/nav1.png) no-repeat;
+    width: 134px;
+    height: 43px;
+    top: 3px;
+    left: -6px;
+    position: absolute;
+    text-indent: -99em;
+}
+
+#search-form {
+    display: inline;
+    position: relative;
+    left: 5px;
+}
+
+#navSearch {
+    display: inline;
+    width: 155px;
+    height: 21px;
+    line-height: 21px;
+    padding: 0 0 0 33px;
+    border: 1px solid #eee;
+    background-color: #fff;
+}
+
+.clrSearch {
+    color: #C00;
+    position: absolute;
+    padding: 4px 5px;
+    right: 4px;
+    top: -3px;
+    background: #FFF;
+    height: 12px;
+    border: 1px solid #EEE;
+    border-width: 1px 0;
+}
+
+.ie7 .clrSearch {
+    left: 155px;
+    top: 9px;
+}
+
+.clrSearch:hover {
+    color: #c00;
+    text-decoration: none;
+}
+
+.navLt, .navRt {
+    position: absolute;
+    line-height: 21px;
+    margin-top: 7px;
+    *margin-top: 6px;
+}
+
+.navLt {
+    left: 135px;
+}
+
+.navRt {
+    right: 0;
+}
+
+.navLt>a, .navRt>a, .navLt .submenu>a, .navRt .submenu>a {
+    color: #fff;
+    font-weight: bold;
+}
+
+.navLt a {
+    margin-left: 15px;
+}
+
+.navRt a {
+    margin-right: 15px;
+}
+
+.navLt a.student-add {
+    background: #f4f4f4 url(/images/sprites/nav2.png) no-repeat 5px -12px;
+    border: 1px solid #999;
+    padding: 3px 5px 3px 23px;
+    color: #444;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.navLt a.student-add:hover {
+    text-decoration: none;
+    border-color: #000;
+}
+
+.navLt a.student-add:active {
+    text-decoration: none;
+    background-color: #ddd;
+    border-color: #999;
+    text-decoration: none;
+    -moz-box-shadow: inset 0 5px 10px #999;
+    -webkit-box-shadow: inset 0 5px 10px #999;
+    box-shadow: inset 0 5px 10px #999;
+}
+
+.submenu {
+    position: relative;
+    padding: 5px;
+}
+
+.submenu .txt {
+    margin: 0;
+}
+
+.submenu .navArw {
+    margin: 0;
+    padding: 3px 4px;
+    cursor: pointer;
+}
+
+.submenu .navArw:hover {
+    text-decoration: none;
+}
+
+.submenu .txt.navArw {
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+
+.submenu .txt.navArw:hover {
+    text-decoration: underline;
+}
+
+.submenuActive {
+    background: #3265B0;
+    background: #fff;
+}
+
+.submenu.submenuActive .txt.navArw {
+    color: #369;
+}
+
+.navLt .submenu {
+    margin-left: 10px;
+}
+
+.navRt .submenu {
+    margin-right: 10px;
+}
+
+.dropdown {
+    position: absolute;
+    left: 0;
+    top: 24px;
+    background: #fff;
+    border: 3px solid #3265B0;
+    width: 150px;
+    padding: 2px 5px;
+    display: none;
+}
+
+.dropdown li {
+    line-height: 16px;
+    height: 20px;
+    float: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative;
+    padding: 2px 0 2px 15px;
+}
+
+.dropdown p {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 0;
+    top: 5px;
+}
+
+.dropdown a {
+    color: #3265B0;
+    margin: 0;
+    font-weight: normal;
+}
+
+.dropdown .no-groups {
+    color: #999;
+    font-style: italic;
+}
+
+.dropdownName {
+    width: 100px;
+}
+
+.dropdownName li {
+    padding-left: 20px;
+}
+
+.submenuActive .dropdown {
+    display: block;
+    max-height: 360px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-left: -3px;
+    -moz-box-shadow: 5px 9px 8px #444;
+    -webkit-box-shadow: 5px 9px 8px #444;
+    box-shadow: 5px 9px 8px #444;
+    border-top: none;
+}
+
+.submenuActive .dropdown.account-toggle {
+    margin-left: -98px;
+    width: 160px;
+}
+
+@media screen and/*!*/(-webkit-min-device-pixel-ratio:0) {
+    .navRt .submenu .navArw {
+        margin-right: 6px;
+    }
+
+    .navRt .submenu .txt.navArw {
+        margin-right: 0;
+    }
+
+    .submenuActive .dropdown.account-toggle {
+        margin-left: -101px;
+        width: 160px;
+    }
+
+    #navSearch {
+        height: 22px;
+    }
+}
+
+.submenu .navArw, .dropdown li {
+    background: url(/images/sprites/nav2.png) 0 999px no-repeat;
+}
+
+.submenu .navArw {
+    background-position: -11px 9px;
+}
+
+.submenuActive .navArw {
+    background-position: 1px 9px;
+}
+
+.dropdown .account-switch {
+    background-position: 0 -12px;
+}
+
+.dropdown .account-settings {
+    background-position: 0 -36px;
+}
+
+.dropdown .account-help {
+    background-position: 0 -61px;
+}
+
+.dropdown .bugReport {
+    background-position: 0 -87px;
+}
+
+.dropdown .account-logout {
+    background-position: 0 -112px;
+}
+
+.archived-group-list {
+    text-align: left;
+}
+
+.archived-group-list div {
+    float: left;
+    height: 30px;
+    clear: both;
+    line-height: 30px;
+}
+
+.archived-group-list p {
+    margin-top: 10px;
+    width: 10px;
+    height: 10px;
+    left: 0;
+    top: 5px;
+    float: left;
+}
+
+.archived-group-list a {
+    margin-left: 3px;
+    float: left;
+}
+
+#navLoginForm input {
+    float: left;
+    margin: 7px 10px 0 0;
+}
+
+#navLoginForm .uname {
+    width: 150px;
+    margin-left: 150px;
+}
+
+#navLoginForm .pwd {
+    width: 150px;
+}
+
+html>body #navLoginForm .submit {
+    padding-bottom: 2px;
+}
+
+#navLoginForm .submit {
+    font-weight: bold;
+    *padding-bottom: 1px;
+    padding: 3px 8px;
+}
+
+#navLoginForm .submit:hover {
+    border-color: #000;
+}
+
+#app-launchpad {
+    position: absolute;
+    margin: -6px 0 0 13px;
+    background: url(http://images.edmodo.com/images/v2/navArw.gif) no-repeat 23px 15px;
+    padding: 4px 17px 1px 3px;
+}
+
+#app-launchpad.active {
+    background: url("http://images.edmodo.com/images/v2/navArw.gif") no-repeat 35px 15px #000;
+}
+
+#app-launchpad img {
+    width: 29px;
+    height: 27px;
+}
+
+.navLt .push-right {
+    margin-left: 75px;
+}
+
+#apps {
+    display: none;
+    background: #000;
+    text-align: center;
+}
+
+#apps div {
+    padding: 100px;
+}
+
+#apps a {
+    color: #fff;
+    width: 160px;
+    height: 80px;
+    background: #444;
+    float: left;
+    margin-right: 30px;
+    padding: 15px 0 40px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+}
+
+#apps a:hover {
+    background: #555;
+    text-decoration: none;
+}
+
+#apps a:active {
+    -moz-box-shadow: inset 0 5px 10px #111;
+    -webkit-box-shadow: inset 0 5px 10px #111;
+    box-shadow: inset 0 5px 10px #111;
+}
+
+#apps a img {
+    margin: 0 auto 10px;
+    display: block;
+    max-height: 85px;
+    max-width: 85px;
+}
+
+#app-canvas {
+    display: none;
+    margin-top: 38px;
+}
+
+#app-canvas iframe {
+    width: 100%;
+}
+
+#signUpEdmodo {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #ddd;
+    line-height: 37px;
+    width: 315px;
+    text-overflow: hidden;
+    text-align: right;
+}
+
+#signUpEdmodo a {
+    color: #fff;
+    font-weight: bold;
+}
+
+#footer {
+    padding: 10px;
+    text-align: center;
+    border-top: none;
+    font-size: 11px;
+}
+
+#footer a, #footer p {
+    display: inline-block;
+    height: 13px;
+    line-height: 13px;
+    font-size: 11px;
+    border-right: 0 solid #999;
+}
+
+#footer a.translate {
+    background: url(/images/sprites/flag.png) no-repeat;
+    width: 16px;
+    margin: 0 1px -4px 0;
+    padding-right: 0;
+    border: 0;
+}
+
+#footer a.translate.es {
+    background-position: -21px 0;
+}
+
+#footer a.translate.pt {
+    background-position: -42px 0;
+}
+
+#footer a.translate.de {
+    background-position: -63px 0;
+}
+
+#footer a.translate.el {
+    background-position: -84px 0;
+}
+
+#footer a.translate.fr {
+    background-position: -105px 0;
+}
+
+#spotlight-container, #minSpotlight {
+    background: url(/images/sprites/spotlight.jpg) 0 bottom no-repeat;
+}
+
+#spotlight-container {
+    margin: 0 0 20px;
+    padding: 0 4px 20px;
+}
+
+#spotlight-container .spotlight {
+    padding: 10px 7px 0;
+    background: #fdfcc4;
+}
+
+#spotlight-container .current {
+    color: #999;
+}
+
+#spotlight-container .spotlight a {
+    margin-bottom: 6px;
+    padding-left: 22px;
+}
+
+#spotlight-container #minSpotlight {
+    background-position: -200px 0;
+    width: 12px;
+    height: 12px;
+    min-height: 12px;
+    padding: 0;
+}
+
+#fp-success {
+    display: none;
+}
+
+div.top-bar-message {
+    display: none;
+    background: transparent url(http://images.edmodo.com/images/backgrounds/success.png);
+    border-color: #3265b0;
+    border-style: solid;
+    border-width: 1px 0;
+    font-size: 13px;
+    padding: 7px 0;
+    text-align: center;
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    top: 37px;
+    width: 100%;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+div.top-bar-message>span {
+    background: transparent url(http://images.edmodo.com/images/icons/green-check.png) no-repeat center left;
+    padding-left: 22px;
+}
+
+div.top-bar-message>a {
+    color: #eee;
+    font-size: 10px;
+}
+
+.crocodoc-new {
+    text-align: center;
+    padding: 8px 0 4px;
+}
+
+#facebox p.crocodoc-new {
+    margin-bottom: 0;
+}
+
+#facebox iframe {
+    background: url(http://images.edmodo.com/images/loading.gif) no-repeat center;
+}
+
+#postBoxWrap, #pb_wrap {
+    border-bottom: 1px solid #DFEDF6;
+}
+
+#left-avatar-col {
+    float: left;
+    width: 140px;
+}
+
+#left-avatar-col img {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#left-avatar-col a {
+    display: block;
+    float: left;
+    padding: 3px 5px;
+}
+
+.jspContainer {
+    overflow: hidden;
+    position: relative;
+}
+
+.jspPane {
+    position: absolute;
+}
+
+.jspVerticalBar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    background: #50506d;
+}
+
+.jspHorizontalBar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #50506d;
+}
+
+.jspVerticalBar *, .jspHorizontalBar * {
+    margin: 0;
+    padding: 0;
+}
+
+.jspCap {
+    display: none;
+}
+
+.jspHorizontalBar .jspCap {
+    float: left;
+}
+
+.jspTrack {
+    background: #E2EDF7;
+    position: relative;
+}
+
+.jspDrag {
+    background: #8FA7CA;
+    position: relative;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+.jspHorizontalBar .jspTrack, .jspHorizontalBar .jspDrag {
+    float: left;
+    height: 100%;
+}
+
+.jspArrow {
+    background: #50506d;
+    text-indent: -20000px;
+    display: block;
+    cursor: pointer;
+}
+
+.jspArrow.jspDisabled {
+    cursor: default;
+    background: #80808d;
+}
+
+.jspVerticalBar .jspArrow {
+    height: 5px;
+}
+
+.jspHorizontalBar .jspArrow {
+    width: 5px;
+    float: left;
+    height: 100%;
+}
+
+.jspVerticalBar .jspArrow:focus {
+    outline: none;
+}
+
+.jspCorner {
+    background: #eeeef4;
+    float: left;
+    height: 100%;
+}
+
+* html .jspCorner {
+    margin: 0 -3px 0 0;
+}

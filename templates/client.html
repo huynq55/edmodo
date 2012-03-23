@@ -1,0 +1,84 @@
+{% extends "main_page.html" %}
+{% block content123 %}
+    <div id="content"><p> Truong Huy Hoang's Corp <br>
+        Welcome anonymous user!
+        You need to <a href="/">login</a> to see or manage your data. </p></div>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/site_media/css/general-v2.css">
+        <link href="/site_media/css/landing-page-v2.css" media="screen" rel="stylesheet" type="text/css">
+        <!-- Landing Page Content -->
+    <div id="landing">
+
+        <div id="edmodo-logo">
+            <img src="/site_media/Home/edmodo-logo.png">
+        </div>
+
+        <!-- Login Form -->
+
+        <form id="form_login" method="post" ation="."> {% csrf_token %}
+
+            <div id="username-wrap">
+                            <span class="login-lbl">
+                                Username or Email	        </span>
+                <input id="username" name="username" autocomplete="off" tabindex="1">
+            </div>
+            <div id="pwd-wrap">
+                            <span class="login-lbl">
+                                <a title="Forgot?">
+                                    Forgot? </a>
+                                Password            </span>
+                <input id="password" name="password" type="password" tabindex="2" autocomplete="off">
+            </div>
+            <input type="submit" id="login" value="Login"/> <br>
+            <input type="hidden" name="next" value="/"/>
+            <br>
+
+            <div class="password-invalid"> {{ state }}</div>
+
+        </form>
+
+        <div id="signup-wrap">
+            <div id="signup">
+                <p>If you still don't have any account <br> Sign up now. It’s Free!</p>
+
+                <div>
+                    <a href="/register/" class="btn teacher">Register</a>
+
+                    <span class="clear"></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="main-pages">
+            <a href="http://blog.edmodo.com/">Blog</a>
+            <a href="http://www.edmodo.com/institutions?language=en">Schools &amp; Districts</a>
+            <a href="http://www.edmodo.com/mobile/">Mobile</a>
+            <a href="http://help.edmodo.com/">Help</a>
+        </div>
+
+    </div>
+    <!-- End of Landing Page Content -->
+
+    </html>
+    <!-- Forgotten Password -->
+
+    <div id="forgot-password-form" style="display:none;">
+        <div class="an-error error" style="display:none;">An unknown error has occured. Please try again later.</div>
+        <p>Enter your email address to have a new password sent out.</p>
+
+        <div class="fp-email-container">
+            <input class="email" name="email" maxlength="50" value="Email Address" type="text">
+            <input type="submit" class="button send-fp" value="Send">
+
+            <div class="email-status msgs-container">
+                <div class="required error">required</div>
+                <div class="doesnt-exist error">the email does not exist</div>
+                <div class="invalid error">not an email address</div>
+                <div class="checking">checking...</div>
+            </div>
+        </div>
+        <p class="student-notice"><strong>If you are a student</strong> and have not supplied Edmodo with an email
+            address,
+            ask one of your instructors to reset your password. </p>
+    </div>
+{% endblock %}

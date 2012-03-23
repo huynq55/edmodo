@@ -1,0 +1,10 @@
+{# library.html #}
+{% for category in categories %}
+    <h2>{{ category.name }}</h2>
+    {% for key,book_group in books.items %}
+        {# == phai tach ra , khong duoc dinh lien voi key hay category.name #}
+        {% if key == category.name %}
+            {{ key }} : {{ book_group.count }}<br/>
+        {% endif %}
+    {% endfor %}
+{% endfor %}

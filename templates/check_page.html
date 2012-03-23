@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>Check Page</title>
+</head>
+<body>
+    {% for book in books %}
+        {{ book.title }}<br/>
+        Shared by:{{ book.uploader }}
+        Uploaded date:{{ book.upload_date.now }}
+        Readers:{{ book.read_count }}
+        <br/>
+    {% endfor %}
+</body>
+</html>

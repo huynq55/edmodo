@@ -1,4 +1,6 @@
 # Django settings for EdmodoLibrary project.
+import os.path
+import django
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -11,10 +13,10 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'libdb',                      # Or path to database file if using sqlite3.
-        'USER': 'root',                      # Not used with sqlite3.
-        'PASSWORD': 'minhhoang',                  # Not used with sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -45,12 +47,12 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = 'E:/SoftwareEngineering/storage'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = 'storage'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -102,7 +104,9 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'edmodo.urls'
 
-TEMPLATE_DIRS = ('D:/edmodo//templates',)
+TEMPLATE_DIRS = (
+    os.path.join(os.path.dirname(__file__),'templates'),
+)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -115,7 +119,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-    'edmodo.library',
+    'library',
+    'easy_thumbnails',
+    #'django_evolution',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -141,4 +147,6 @@ LOGGING = {
     }
 }
 
-LOGIN_URL = '/login'
+#Setting for easy thumbnail
+THUMBNAIL_DEBUG=True
+THUMBNAIL_QUALITY=90

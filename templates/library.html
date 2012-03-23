@@ -1,5 +1,17 @@
-{% extends "nav.html" %}
+{% extends 'base.html' %}
 {% block title %}Library{% endblock %}
-{% block content2 %}
-    <h1>This is the library site!</h1>
+{% block content %}
+    <h1>Libray</h1>
+    {% for key,book_group in books.items %}
+        <h2>{{ key }}</h2>
+        {% for book in book_group %}
+            {% if book.id == 11 %}
+                
+            {% endif %}
+            {{ book.title }}<br/>
+            Shared by:{{ book.uploader }}
+            Uploaded date:{{ book.upload_date.now }}
+            Readers:{{ book.reader_set.count }}
+        {% endfor %}
+    {% endfor %}
 {% endblock %}

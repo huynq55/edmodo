@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+{% block title %}Home page{% endblock %}
+{% block external %}
+    <script type="text/javascript" src="/site_media/javascript/tag_sphere/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="/site_media/javascript/tag_sphere/jquery.tagsphere.js"></script>
+    <script type="text/javascript" src="/site_media/javascript/tag_sphere/jquery.tagsphere.min.js"></script>
+    <script type="text/javascript" src="/site_media/javascript/bootstrap-modal.js"> </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#tagSphere').tagcloud({centrex:200, centrey:170, init_motion_x:20, init_motion_y:20, zoom:110});
+        });
+    </script>
+{% endblock %}
+{% block registration %} {% endblock %}
+{% block content %}
+    {% if user.username %}
+        Welcome {{ user.username }} !
+
+        <div id="left">
+            <h2>Top Read</h2>
+            {% for book in top_read %}
+                <p>{{ book.title }}</p>
+                <span class="info">Shared by:{{ book.uploader }}
+                        Uploaded date:{{ book.upload_date.now }}
+                        Readers:{{ book.read_count }}</span>
+            {% endfor %}
+            <!--
+            <h2>Nulla viverra fermentum</h2>
+            <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetuer adipiscing elit. Pellentesque aliquam sollicitudin neque. Donec in justo. Aliquam eu massa. Fusce a libero sit amet est sodales rhoncus.</p>
+            <p class="info">Posted: 12/10/07 @ 12:18pm <a href="#" class="cmt"><br/>Comments (0)</a></p>
+            -->
+            <!--
+            <h2>Nulla viverra fermentum</h2>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque aliquam sollicitudin neque. Donec in justo. Aliquam eu massa. Fusce a libero sit amet est sodales rhoncus.</p>
+            <p class="info">Posted: 12/10/07 @ 12:18pm <a href="#" class="cmt"><br/>Comments (0)</a></p>
+            -->
+        </div>
+
+        <div id="right">
+            <!--
+            <h3>Our services</h3>
+            <ul class="links">
+                <li><a href="http://www.opendesigns.org">OpenDesigns</a></li>
+                <li><a href="http://www.onedollartemplates.com">OneDollarTemplates</a></li>
+                <li><a href="http://www.designerlinks.net">DesignerLinks</a></li>
+                <li><a href="http://www.sixshootermedia.com">Logo Design</a></li>
+                <li><a href="http://www.shaped.ca">PHP/MySQL Development</a></li>
+            </ul>
+            -->
+            <div id="tagSphere"
+                 style="width:400px; height:400px; background-color:#7efc2a; background-image: url(/site_media/img/seal2.png);">
+                <ul style="list-style-type: none">
+
+                    <li><a href="#1" style="color:#f00;">Link 1</a></li>
+                    <li><a href="#2">Link 2</a></li>
+                    <li><a href="#3">Link 3</a></li>
+
+                    <li><a href="#4" rel="5">Link 4</a></li>
+                    <li><a href="#5" rel="1">Link 5</a></li>
+                    <li><a href="#6" rel="5">Link 6</a></li>
+                    <li><a href="#7" rel="10">Link 7</a></li>
+                    <li><a href="#8" rel="15">Link 8</a></li>
+                    <li><a href="#9" style="color:#f00" rel="20">Link 9</a></li>
+
+                    <li><a href="#10" rel="15">Link 10</a></li>
+                    <li><a href="#11" rel="10">Link 11</a></li>
+                    <li><a href="#12" rel="5">Link 12</a></li>
+                    <li><a href="#13" rel="1">Link 13</a></li>
+                    <li><a href="#14" rel="5">Link 14</a></li>
+                    <li><a href="#15" rel="10">Link 15</a></li>
+
+                    <li><a href="#16" rel="15">Link 16</a></li>
+                    <li><a href="#17" style="color:#f00" rel="20">Link 17</a></li>
+                    <li><a href="#18" rel="15">Link 18</a></li>
+                    <li><a href="#19" rel="10">Link 19</a></li>
+                    <li><a href="#20" rel="5">Link 20</a></li>
+                    <li><a href="#21" rel="1">Link 21</a></li>
+
+                    <li><a href="#22" rel="10">Link 22</a></li>
+
+                    {% for category in categories %}
+                        <li><a href="/library/{{ category.name }}/" style="color:#ff0000;">{{ category.name }}</a></li>
+
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <h3>Photos</h3>
+            <ul class="images">
+                <li><a href="#"><img src="img/image.gif" alt="An example of an image" width="65" height="60"/></a></li>
+                <li><a href="#"><img src="img/image.gif" alt="An example of an image" width="65" height="60"/></a></li>
+                <li><a href="#"><img src="img/image.gif" alt="An example of an image" width="65" height="60"/></a></li>
+                <li><a href="#"><img src="img/image.gif" alt="An example of an image" width="65" height="60"/></a></li>
+                <li><a href="#"><img src="img/image.gif" alt="An example of an image" width="65" height="60"/></a></li>
+                <li><a href="#"><img src="img/image.gif" alt="An example of an image" width="65" height="60"/></a></li>
+            </ul>
+        </div>
+    {% else %}
+        <!-- saved from url=(0032)http://www.edmodo.com/library/v2 -->
+        <div id="content1">
+            <form class="well >
+                  <div id="p_header"> Truong Huy Hoang's Corp <br>
+                        Welcome anonymous user!
+                        You need to <a href="/">login</a> to see or manage your data. </div>
+            </form>
+        </div>
+        <head>
+
+        <!-- Landing Page Content -->
+            <div id="edmodo-logo">
+                <img src="/site_media/img/edmodo-logo-big.png">
+            </div>
+
+            <!-- Login Form -->
+            <div class="pull-center">
+                <form class="form-inline" method="post" ation="."> {% csrf_token %}
+                    <input type="text" name="username" class="input-medium" placeholder="Email">
+                    <input type="password" name="password" class="input-medium" placeholder="Password">
+
+
+                    <input type="submit" class="btn-huge" vaname="password" value="Login"/></button>
+                    <input type="hidden" name="next" value="/"/>
+                    <div class="password-invalid"> {{ state }}</div>
+                </form>
+            </div>
+            <div id="signup-wrap">
+                <div id="signup">
+                    <p>If you still don't have any account <br> Sign up now. It’s Free!</p>
+                    <div>
+                        <div id="myModal" class="Modal" style="display: none; ">
+                            <div class="modal-header">
+                                <a class="close" data-dismiss="modal">×</a>
+                                <h3>Form registration</h3>
+                            </div>
+                            <div class="modal-body">
+
+                                <form id="register-form" method="post" action="/">
+                                    <table>
+                                        {% csrf_token %}
+                                        {{ form.as_table }}
+                                    </table>
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="submit" class="btn" value="Sign up" />
+
+                                <a href="#" class="btn" data-dismiss="modal">Close</a>
+                            </div>
+                        </div>
+                        <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">Register</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+        <!-- End of Landing Page Content -->
+        <!-- Forgotten Password -->
+
+        <div id="forgot-password-form" style="display:none;">
+            <div class="an-error error" style="display:none;">An unknown error has occured. Please try again later.
+            </div>
+            <p>Enter your email address to have a new password sent out.</p>
+
+            <div class="fp-email-container">
+                <input class="email" name="email" maxlength="50" value="Email Address" type="text">
+                <input type="submit" class="button send-fp" value="Send">
+
+                <div class="email-status msgs-container">
+                    <div class="required error">required</div>
+                    <div class="doesnt-exist error">the email does not exist</div>
+                    <div class="invalid error">not an email address</div>
+                    <div class="checking">checking...</div>
+                </div>
+            </div>
+            <p class="student-notice"><strong>If you are a student</strong> and have not supplied Edmodo with an email
+                address,
+                ask one of your instructors to reset your password. </p>
+        </div>
+    {% endif %}
+{% endblock %}

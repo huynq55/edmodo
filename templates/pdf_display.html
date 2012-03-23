@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>PDF Display</title>
+    <script type="text/javascript" src="/site_media/pdf_view/pdfobject.js"></script>
+</head>
+<body>
+    <h2>PDF display example</h2>
+    <script type="text/javascript">
+        window.onload = function (){
+            var myPDF = new PDFObject({ url: '/123_de_thi_thu_dai_hoc_2009.pdf' }).embed();
+        };
+    </script>
+</body>
+</html>
