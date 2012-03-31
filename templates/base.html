@@ -15,9 +15,13 @@
                     Cyber Library
                 </a>
                 <ul class="nav">
-
-                    <li><a href="/" class="active">Home</a></li>
-                    <li><a href="/library">Library</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="/user/{{ user.username }}/" class="active">Home</a></li>
+                        <li><a href="/library" class="active">Library</a></li>
+                    {% else %}
+                        <li><a href="/" class="active">Home</a></li>
+                        <li><a href="/">Library</a></li>
+                    {% endif %}
                     <li><a href="/services">Forum</a></li>
                     <li><a href="/contact">Contact</a></li>
                 </ul>
@@ -26,7 +30,7 @@
                 </form>
                 <div class="nav pull-right">
                     <ul class="nav pills">
-                        <li><a href="/">Regular link</a></li>
+                        <li><a href="#">Regular link</a></li>
                         <li class="dropdown" id="menu1">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
                                 Account
@@ -35,6 +39,8 @@
                             <ul class="dropdown-menu">
                                 {% if user.is_authenticated %}
                                     <li><a href="/logout/">Logout</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="config">Setting</a></li>
                                 {% else %}
                                     <li><a href="/">Login</a></li>
                                     <li><a href="/register/">Register</a></li>
@@ -64,11 +70,11 @@
                 <div id="footer_links">
                     <div id="footer_links">
                         <ul>
-                            <li class="first"><a href="/">Copyright Statement</a></li>
-                            <li><a href="/">Privacy Policy</a></li>
-                            <li><a href="/">Site
+                            <li class="first"><a href="#">Copyright Statement</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Site
                                 Help</a></li>
-                            <li class="last"><a href="/">Site Index</a></li>
+                            <li class="last"><a href="#">Site Index</a></li>
                         </ul>
                     </div>
                     <div id="footer-copyright">© 1997–2012 Glory Library Association</div>
@@ -85,5 +91,6 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>

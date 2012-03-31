@@ -28,9 +28,11 @@ urlpatterns = patterns('',
     url(r'^user/(\w+)/config/$',user_config),
 
     #Library
-    url(r'^library/$',library),
-    url(r'^library/(\w+)/$',category),
-    url(r'^library/(\w+)/(\d+)',book_page),
+    url(r'^books/$',books),
+    url(r'^books/(\w+)/$',category),
+    url(r'^books/(\w+)/(\d+)',book_page),
+    url(r'^videos/$',videos),
+    url(r'^images/$',images),
 
 
     #Test cloud

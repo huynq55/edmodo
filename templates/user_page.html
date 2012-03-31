@@ -1,10 +1,11 @@
 {% extends "base.html" %}
-{% block title %}Library|{{ user.username }}{% endblock %}
+{% block title %}books|{{ user.username }}{% endblock %}
 {% block external %}
     <script type="text/javascript" src="/site_media/javascript/tag_sphere/jquery.mousewheel.min.js"></script>
     <script type="text/javascript" src="/site_media/javascript/tag_sphere/jquery.tagsphere.js"></script>
     <script type="text/javascript" src="/site_media/javascript/tag_sphere/jquery.tagsphere.min.js"></script>
     <script type="text/javascript" src="/site_media/javascript/bootstrap-modal.js"></script>
+    <script type="text/javascript" src="/site_media/javascript/bootstrap-tab.js"></script>
 
     <script type="text/javascript">
         $(function () {
@@ -27,17 +28,18 @@
         {% endif %}
     {% endif %}
 
+    <div class="navbar-inner-background">
 
-    <div class="container-fluid">
         <div class="row-fluid">
             <div class="span3">
                 <div class="well sidebar-nav">
                     <ul class="nav nav-list">
                         <li class="active"><a href="#">Your account</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="config">Setting</a></li>
-                        <li><a href="#">Link</a></li>
+                        <img id="avatar" src="http://u.ph.edim.co/default-avatars/default_avatar.png">
+                        <a id="avatarName" href="/user/{{ user.username }}">{{ user.username }}</a><br>
+
+
                         <li class="active"><a href="#">Other</a></li>
                         <li class="divider"></li>
                         <li><a href="/upload">Upload files</a></li>
@@ -48,95 +50,46 @@
                         <li><a href="#">Link</a></li>
 
                     </ul>
-                </div><!--/.well -->
-            </div><!--/span-->
+                </div>
+                <!--/.well -->
+            </div>
+            <!--/span-->
 
             <div class="span7">
-                <div class="modal" style="position: relative; top: auto; left: auto; margin: 0 auto; z-index: 991">
-                    <div class="modal-header">
-                        <div class="pull-center">
-                            <div class="span2">
-                                <div class="well sidebar-nav">
-                                    <ul class="nav nav-list">
-                                        <li class="active"><a href="#">Books</a></li>
-                                    </ul>
-                                </div><!--/.well -->
-                            </div>
+                <ul class="breadcrumb">
+                    <ul id="tab" class="nav nav-tabs">
+                        <li class=""><a href="/books">Books</a></li>
+                        <li class=""><a href="/videos">Videos</a></li>
+                        <li class=""><a href="/images">Images</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Media <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/videos">Videos</a></li>
+                                <li><a href="/images">Images</a></li>
+                            </ul>
+                        </li>
+                    </ul>
 
-                            <div class="span2">
-                                <div class="well sidebar-nav">
-                                    <ul class="nav nav-list">
-                                        <li class="active"><a href="#">Videos</a></li>
-                                    </ul>
-                                </div><!--/.well -->
-                            </div>
-
-                            <div class="span2">
-                                <div class="well sidebar-nav">
-                                    <ul class="nav nav-list">
-                                        <li class="active"><a href="#">Images</a></li>
-                                    </ul>
-                                </div><!--/.well -->
-                            </div>
-                        </div>
-                    </div>
-
+                </ul>
+                <div class="modal" style="position: relative; top: auto; left: auto; margin: 0 auto; z-index: 1">
                     <div class="modal-body">
-                        <li class="divider"></li>
-                        <li class="divider"></li>
-                        <li class="divider"></li>
-
-                            <div class="row-fluid">
-                                <div class="span4">
-                                    <h2>Heading</h2>
-                                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                                    <p><a class="btn" href="#">View details »</a></p>
-                                </div><!--/span-->
-                                <div class="span4">
-                                    <h2>Heading</h2>
-                                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                                    <p><a class="btn" href="#">View details »</a></p>
-                                </div><!--/span-->
-                                <div class="span4">
-                                    <h2>Heading</h2>
-                                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                                    <p><a class="btn" href="#">View details »</a></p>
-                                </div><!--/span-->
-                            </div><!--/row-->
-                            <div class="row-fluid">
-                                <div class="span4">
-                                    <h2>Heading</h2>
-                                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                                    <p><a class="btn" href="#">View details »</a></p>
-                                </div><!--/span-->
-                                <div class="span4">
-                                    <h2>Heading</h2>
-                                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                                    <p><a class="btn" href="#">View details »</a></p>
-                                </div><!--/span-->
-                                <div class="span4">
-                                    <h2>Heading</h2>
-                                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                                    <p><a class="btn" href="#">View details »</a></p>
-                                </div><!--/span-->
-                            </div><!--/row-->
-
+                        {% block contentCatagories %} Anormous datas have stored in this books {% endblock %}
                     </div>
                     <div class="modal-footer">
-
                     </div>
                 </div>
 
-            </div><!--/span-->
+            </div>
+            <!--/span-->
 
             <div class="span2">
                 <div class="well sidebar-nav">
                     <ul class="nav nav-list">
                         <li class="active"><a href="#">Action</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Setting</a></li>
-                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Add</a></li>
+                        <li><a href="#">Delete</a></li>
+                        <li><a href="#">Upgrade</a></li>
                         <li class="active"><a href="#">Other</a></li>
                         <li class="divider"></li>
                         <li><a href="#">Link</a></li>
@@ -147,15 +100,17 @@
                         <li><a href="#">Link</a></li>
 
                     </ul>
-                </div><!--/.well -->
-            </div><!--/span-->
-        </div><!--/row-->
+                </div>
+                <!--/.well -->
+            </div>
+            <!--/span-->
+        </div>
+        <!--/row-->
 
-        <hr>
-
+        <br> <br>
 
 
     </div>
-
+    <br>
 
 {% endblock %}

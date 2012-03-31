@@ -1,6 +1,10 @@
-{% extends "base.html" %}
+{% extends "user_page.html" %}
 {% block title %}{{ user.username }}|Information{% endblock %}
-{% block content %}
+{% block contentCatagories %}
+    <div class="modal-header">
+        <h2>Update your information</h2>
+    </div>
+    <br>
     <form method="post" action=".">   {% csrf_token %}
         <table>
             {{ form.as_table }}

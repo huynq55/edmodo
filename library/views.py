@@ -41,7 +41,9 @@ def main_page(request):
             if user is not None:
                 if user.is_active:
                     login(request)
-                    return HttpResponseRedirect('/')
+                    return render_to_response(
+                        'user_page.html', RequestContext(request,{'user': user,})
+                    )
             else:
                 state ='Username and passowrd didn\'t match. Please try again.!'
                 return render_to_response('main_page.html', RequestContext(request,{'state':state}))
@@ -246,13 +248,29 @@ def file_download(request,book_id):
     return response
 
 
-def library(request):
+def books(request):
     categories=Category.objects.all()
     books={}
     for category in categories:
         book_group=category.book_set.filter(public_share=True)
         books[category.name]=book_group.order_by('-upload_date')[:3]
-    return render_to_response('library.html',RequestContext(request,{'categories':categories,'books':books}))
+    return render_to_response('books.html',RequestContext(request,{'categories':categories,'books':books}))
+
+def videos(request):
+    categories=Category.objects.all()
+    books={}
+    for category in categories:
+        book_group=category.book_set.filter(public_share=True)
+        books[category.name]=book_group.order_by('-upload_date')[:3]
+    return render_to_response('videos.html',RequestContext(request,{'categories':categories,'books':books}))
+
+def images(request):
+    categories=Category.objects.all()
+    books={}
+    for category in categories:
+        book_group=category.book_set.filter(public_share=True)
+        books[category.name]=book_group.order_by('-upload_date')[:3]
+    return render_to_response('images.html',RequestContext(request,{'categories':categories,'books':books}))
 
 def category(request,category_name):
     if not request.GET:

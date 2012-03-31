@@ -109,6 +109,18 @@ h7-color{
     text-rendering: optimizelegibility;
 }
 
+#avatar {
+    height: 140px;
+    width: 140px;
+    margin-bottom: 5px;
+}
+
+#avatarName {
+    color: #444;
+    font-weight: bold;
+    display: block;
+    word-wrap: break-word;
+}
 
 /*Finish my definition*/
 audio, canvas, video {
@@ -2061,7 +2073,7 @@ table .span12 {
     z-index: 1000;
     float: left;
     display: none;
-    min-width: 160px;
+    min-width: auto;
     _width: 160px;
     padding: 4px 0;
     margin: 0;
@@ -2088,6 +2100,13 @@ table .span12 {
     top: auto;
     bottom: 100%;
     margin-bottom: 2px;
+}
+.divider {
+    height: 1px;
+    margin: 5px 1px;
+    overflow: hidden;
+    background-color: #E5E5E5;
+    border-bottom: 1px solid white;
 }
 
 .dropdown-menu .divider {
@@ -3092,6 +3111,21 @@ button.btn.small, input[type="submit"].btn.small {
     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
+.navbar-inner-background {
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #f2fff6;
+
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#333333', endColorstr = '#222222', GradientType = 0);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
 
 .btn-navbar {
     display: none;
@@ -3595,7 +3629,7 @@ button.btn.small, input[type="submit"].btn.small {
     z-index: 1050;
     max-height: 500px;
     overflow: auto;
-    width: 560px;
+    width: auto;
     margin: -250px 0 0 -280px;
     background-color: #ffffff;
     border: 1px solid #999;
@@ -3608,7 +3642,7 @@ button.btn.small, input[type="submit"].btn.small {
     border-radius: 6px;
     -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
     -webkit-background-clip: padding-box;
     -moz-background-clip: padding-box;
     background-clip: padding-box;
@@ -4259,6 +4293,17 @@ a.thumbnail:hover {
     color: #ffffff;
 }
 
+
+.hero-unit-nav {
+    margin-bottom: 30px;
+    background-color: #f5f5f5;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+
+
+
 .hero-unit {
     padding: 60px;
     margin-bottom: 30px;
@@ -4348,7 +4393,7 @@ a.thumbnail:hover {
 }
 
 #content1{
-    margin: 0;
+    margin-top: 40px;
     font-size: 20px;
     text-align: center;
     padding: 0;
