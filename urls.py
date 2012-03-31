@@ -37,7 +37,7 @@ urlpatterns = patterns('',
     url(r'^tag_cloud/$',tag_cloud),
 
     url(r'^upload/$',file_upload),
-    url(r'^upload/success/$',file_upload_success),
+    url(r'^user/(\w+)/upload/success/$',file_upload_success),
     url(r'^download/(\d+)/$',file_download),
 
     url(r'^pdf_display/$',direct_to_template,{'template':'pdf_display.html'}),

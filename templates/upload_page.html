@@ -1,8 +1,7 @@
-<html>
-<head>
-    <title>Upload Page</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Upload{% endblock %}
+{% block content %}
+    <br><br><br>
     <h2>Select the file to upload</h2>
     <form enctype="multipart/form-data" method="post" action=".">
         <table id="upload_table">
@@ -13,5 +12,4 @@
         <input type="submit" value="Upload"/>
     </form>
     Status{{ status }}
-</body>
-</html>
+{% endblock %}
