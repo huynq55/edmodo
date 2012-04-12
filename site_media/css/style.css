@@ -30,7 +30,7 @@ a { text-decoration: none; color: #ff9; }
 a:hover { text-decoration: none; }
 
 /* images */
-img { border: 5px solid #333; margin: 0 10px 10px 0; }
+img { border: 5px solid #333; /*margin: 0 10px 10px 0;*/ }
 a img { border: 5px solid #2F1C07; }
 a:hover img { border-color: #50300C; }
 img.right { margin-left: 10px; }
@@ -45,13 +45,13 @@ dl dt { font-weight: bold; }
 
 
 /* tables */
-table { margin: 0 0 30px; border: 1px solid #333; }
+table { margin: 0 0 10px; /*border: 1px solid #333;*/ }
 table th, table td { padding: 10px; text-align: left; color: #fff; }
 table th { background-color: #222; }
 
 /* horizontal rule */
 hr { border: 0; height: 1px; background-color: #333; color: #333; margin: 30px 0 0; }
-
+/*span, em, strong, acronym, del, label, input, select, textarea, a { margin: 0 !important; }*/
 
 
 /*------------------------------------------------------------*
@@ -193,7 +193,7 @@ correct margins. */
 #content div { margin-right: 0; }
 #content div * { margin-right: 0; }
 */
-span, em, strong, acronym, del, label, input, select, textarea, a { margin: 0 !important; }
+
 
 /* left column formatting */
 #content #left {
@@ -283,3 +283,4 @@ span, em, strong, acronym, del, label, input, select, textarea, a { margin: 0 !i
 #footer p { margin: 0; position: relative; }
 #footer p span	{ position: absolute; right: 0; }
 * html #footer p span { right: 30px; }
+

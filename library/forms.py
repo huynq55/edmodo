@@ -5,8 +5,9 @@ from django.core.exceptions import ObjectDoesNotExist
 from library.models import *
 from django.forms import ModelForm
 from django.utils.safestring import mark_safe
+from django.forms.widgets import *
 
-class loginForm(forms.Form):
+class LoginForm(forms.Form):
     username=forms.CharField(label='Username',max_length=200)
     password=forms.CharField(
         label='Password',
@@ -48,19 +49,12 @@ class UploadFileForm(forms.Form):
 
     up_file=forms.FileField(
         label='File URL',
-        #widget=forms.FileInput(attrs={'size':80,'margin-right':})
     )
 
     description=forms.Field(
         widget=forms.Textarea(),
         label='Description',
     )
-    '''
-    category=forms.ChoiceField(
-        choices='Kien,dep,trai',
-        label='Category',
-    )
-    '''
     category=forms.ModelChoiceField(
         queryset=Category.objects.all(),
         label='Category',
@@ -95,25 +89,66 @@ class UserInfoForm(forms.Form):
         choices=GENDER_CHOICES,
         initial='m',
     )
-    birth_date=forms.DateField()
     email=forms.EmailField(label='Email')
+    about=forms.CharField(label='About',max_length=500,widget=forms.Textarea)
+
+class ProfileImageChangeForm(forms.Form):
     profile_image=forms.ImageField(
-        label="Profile Picture"
+        label="Profile Picture",
+        required=False
     )
 
+class PasswordChangeForm(forms.Form):
+    old_password=forms.CharField(
+        label='Old Password',
+        widget=forms.PasswordInput(),
+    )
+    new_password1=forms.CharField(
+        label='New Password',
+        widget=forms.PasswordInput(),
+    )
+    new_password2=forms.CharField(
+        label='Confirm New Password',
+        widget=forms.PasswordInput(),
+    )
+    def clean_new_password2(self):
+        if 'password1' in self.cleaned_data:
+            new_password1 = self.cleaned_data['new_password1']
+            new_password2 = self.cleaned_data['new_password2']
+            if new_password1 == new_password2:
+                return new_password2
+        raise forms.ValidationError('Passwords do not match.')
 
-FILTER_CHOICES=[
+MAIN_FILTER_CHOICES=[
     ('posted_date','Posted Date'),
     ('reading_number','Reading Number'),
     ('like_number','Like Number'),
     ('file_size','File Size'),
 ]
+SUB_FILTER_CHOICES=[('dec','Decrease'),('inc','Increase')]
 class FilterForm(forms.Form):
     main_filter=forms.ChoiceField(
         label='',
-        choices=FILTER_CHOICES,
+        choices=MAIN_FILTER_CHOICES,
     )
     sub_filter=forms.ChoiceField(
         label='',
-        choices=[('dec','Decrease'),('inc','Increase')],
+        choices=SUB_FILTER_CHOICES,
+    )
+
+class ReplyForm(forms.Form):
+    content=forms.CharField(
+        max_length=1000,
+        label='Content',
+        widget=forms.Textarea(),
+        required=False,
+    )
+    attach_link=forms.URLField(
+        label='Attach Link',
+        required=False,
+    )
+class NewThreadForm(forms.Form):
+    subject=forms.CharField(
+        max_length=200,
+        label='Subject',
     )

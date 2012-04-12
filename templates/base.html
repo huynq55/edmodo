@@ -1,96 +1,41 @@
 <html>
 <head>
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="/site_media/css/bootstrap.css" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="/site_media/css/general-v2.css">
+    <link rel="stylesheet" href="/site_media/css/style.css" type="text/css" />
     <script type="text/javascript" src="/site_media/javascript/jquery.js"></script>
-    <script type="text/javascript" src="/site_media/javascript/bootstrap-dropdown.js"></script>
     {% block external %}{% endblock %}
 </head>
 <body>
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <a class="brand" href="/">
-                    Cyber Library
-                </a>
-                <ul class="nav">
-                    {% if user.is_authenticated %}
-                        <li><a href="/user/{{ user.username }}/" class="active">Home</a></li>
-                        <li><a href="/library" class="active">Library</a></li>
-                    {% else %}
-                        <li><a href="/" class="active">Home</a></li>
-                        <li><a href="/">Library</a></li>
-                    {% endif %}
-                    <li><a href="/services">Forum</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-                <form class="navbar-search pull-left">
-                    <input type="text" class="search-query" placeholder="Search">
-                </form>
-                <div class="nav pull-right">
-                    <ul class="nav pills">
-                        <li><a href="#">Regular link</a></li>
-                        <li class="dropdown" id="menu1">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
-                                Account
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                {% if user.is_authenticated %}
-                                    <li><a href="/logout/">Logout</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="config">Setting</a></li>
-                                {% else %}
-                                    <li><a href="/">Login</a></li>
-                                    <li><a href="/register/">Register</a></li>
-                                {% endif %}
-
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </li>
-                        {% if user.is_authenticated %}
-                            <li><a href="/user/{{ user.username }}/"> Welcome
-                                <h7-color>{{ user.username }}</h7-color>
-                                !</a>
-                            </li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <div id="account_menu">
+        <ul>
+            {% if user.is_authenticated %}
+                <li>Welcome <a href="/user/{{ user.username }}/"> {{ user.username }}</a> !</li>
+                <li><a href="/accounts/logout/">Logout</a></li>
+            {% else %}
+                <li><a href="/accounts/login/">Login</a></li>
+            {% endif %}
+        </ul>
     </div>
 
-    {% block head %}{% endblock %}
-    {% block content %}{% endblock %}
-    <div class="well">
-        <div id="footer">
-            <div id="fixed-width">
-                <div id="footer_links">
-                    <div id="footer_links">
-                        <ul>
-                            <li class="first"><a href="#">Copyright Statement</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Site
-                                Help</a></li>
-                            <li class="last"><a href="#">Site Index</a></li>
-                        </ul>
-                    </div>
-                    <div id="footer-copyright">© 1997–2012 Glory Library Association</div>
-                </div>
-                <div class="contact">
-                    <h2><img src="/site_media/img/user_images/edmodo-logo.png"
-                             alt="American Library Association" width="192" height="13"></h2>
+	<div id="container">
+    
+    	<div id="header">
+        	<h1><a href="index.html">Cyber Library</a></h1>
+            <ul>
+            	<li><a href="/" class="on">Home</a></li>
+                <li><a href="/library/">Library</a></li>
+                <li><a href="/forum/">Forum</a></li>
+                <li><a href="#">Style playground</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <form method="get" action="#">
+            	<p><input type="text" name="search" /><input type="submit" value="Search" class="btn" /></p>
+            </form>
+        </div>
 
-                    <p>144 Xuan Thuy St., Cau giay district, Ha Noi, VN |
-                        <span class="skype_pnh_print_container_1332123927">1.800.545.2433</span><span
-                                class="skype_pnh_container" dir="ltr" tabindex="-1"><span class="skype_pnh_mark"></span></span>
-                    </p>
-                </div>
-            </div>
+        <div id="content">
+            {% block content %}{% endblock %}
         </div>
     </div>
-
 </body>
 </html>

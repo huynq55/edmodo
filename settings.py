@@ -47,7 +47,7 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = 'E:/SoftwareEngineering/storage'
+MEDIA_ROOT = os.path.join(os.path.dirname(__file__),'storage')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -121,7 +121,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'library',
     'easy_thumbnails',
-    #'django_evolution',
+    'django_evolution',
 )
 
 # A sample logging configuration. The only tangible logging

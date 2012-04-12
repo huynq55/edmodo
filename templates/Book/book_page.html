@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}{{ category.name }}{% endblock %}
+{% block content %}
+    {% if not book.public_share %}
+        You can't view this book because it's private
+    {% else %}
+        <h1>{{ book.title }}</h1>
+
+        Shared by:{{ book.uploader }}
+        Uploaded date:{{ book.upload_date.now }}
+        {% if book.file %}Size: {{ book.file.size|filesizeformat }}
+        {% else %}Size: 0
+        {% endif %}
+        Readers:{{ book.read_count }}
+        Like:{{ book.vote_set.count }}
+        <br/>
+        {% if not is_voted %}
+             <a href="/vote?id={{ book.id }}"><input type="button" value="Like"/></a>
+            
+        {% endif %}
+    {% endif %}
+
+{% endblock %}

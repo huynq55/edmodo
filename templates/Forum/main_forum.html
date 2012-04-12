@@ -1,0 +1,23 @@
+<!-- Forums  -->
+<div id="list">
+    <table border="1px black solid" cellpadding="4" width="100%">
+        <tr>
+            <td></td>
+            <td>Posts</td>
+            <td>Last post</td>
+            <td></td>
+        </tr>
+
+        {% for forum in forums %}
+            <tr>
+                <td>{{ forum.title }}</td>
+                <td>{{ forum.num_threads }}</td>
+                <td>{{ forum.last_post.short|linebreaksbr }}</td>
+                <td >
+                    <a class="button" href="/forum/{{ forum.id }}/">VIEW</a>
+                </td>
+            </tr>
+
+        {% endfor %}
+    </table>
+</div>

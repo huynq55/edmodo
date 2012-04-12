@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ user.username }}|Information{% endblock %}
+{% block content %}
+    <form method="post" action="../">
+        <table>
+            {% csrf_token %}
+            {{ form.as_table }}
+        </table>
+        <label style="font-size:1.2em;font-weight: bold;margin-right:10px">Profile Image</label>
+        <img src="#" alt="Profile_Image" width="200px" height="200px" style="margin-top:5px" align="top"/>
+        <input type="submit" value="Change Picture"/><br/>
+        <table>
+            {{  }}
+        </table>
+        <input type="submit" value="Save"/>
+    </form>
+{% endblock %}

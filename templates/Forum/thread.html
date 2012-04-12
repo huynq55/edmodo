@@ -1,0 +1,39 @@
+<!-- Posts  -->
+<div class="title"><h2>{{ title }}</h2></div>
+<div id="list">
+
+    {% for post in posts.object_list %}
+        <div class="post">
+            {{ post.content }}<br />
+            by {{ post.creator }} | <span class="date">{{ post.created }}</span> <br /><br />
+        </div>
+    {% endfor %}
+</div>
+
+<!-- Next/Prev page links  -->
+{% if posts.object_list and posts.paginator.num_pages > 1 %}
+    <div class="pagination">
+    <span class="step-links">
+        {% if posts.has_previous %}
+            <a href= "?page={{ posts.previous_page_number }}">previous &lt;&lt; </a>
+        {% endif %}
+
+        <span class="current">
+            &nbsp;Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+        </span>
+
+        {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}"> &gt;&gt; next</a>
+        {% endif %}
+    </span>
+    </div>
+{% endif %}
+
+<form method="post" action=".">
+    <table>
+        {% csrf_token %}
+        {{ reply_form.as_table }}
+    </table>
+    <input type="submit" value="Reply"/>
+</form>
+

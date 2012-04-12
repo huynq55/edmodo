@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}{{ category.name }}{% endblock %}
+{% block content %}
+    <form class="filter-form" method="post" action="?page={{ page }}">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Filter"/>
+    </form>
+    <h1>{{ category.name }}</h1>
+    <h2>{{ page }}</h2>
+    {{ status }}
+    {% for book in books.object_list %}
+        {# This is where we display book's information #}
+        <div class="book_slot">
+            <div class="main_info">
+                {{ book.title }}<br/>
+            </div>
+            <div class="sub_info">
+                Shared by:{{ book.uploader }}
+                Uploaded date:{{ book.upload_date.now }}
+                {% if book.file %}Size: {{ book.file.size|filesizeformat }}
+                {% else %}Size: 0
+                {% endif %}
+                Readers:{{ book.read_count }}
+                Like:{{ book.vote_set.count }}
+
+            </div>
+        </div>
+    {% endfor %}
+
+    {% if books.object_list and books.paginator.num_pages > 1 %}
+        <div class="pagination">
+    <span class="step-links">
+        {% if books.has_previous %}
+            <a href= "?page={{ books.previous_page_number }}">previous &lt;&lt; </a>
+        {% endif %}
+
+        <span class="current">
+            &nbsp;Page {{ books.number }} of {{ books.paginator.num_pages }}
+        </span>
+
+        {% if books.has_next %}
+            <a href="?page={{ books.next_page_number }}"> &gt;&gt; next</a>
+        {% endif %}
+    </span>
+        </div>
+    {% endif %}
+{% endblock %}

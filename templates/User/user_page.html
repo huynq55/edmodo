@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Library|{{ user.username }}{% endblock %}
+{% block external %}
+
+{% endblock %}
+{% block content %}
+
+{% if is_user %}
+    Welcome {{ user.username }}! Day la trang user<br/>
+    <h2>Notifications</h2>
+    {% for thread in user.thread_set.all %}
+        {% if thread.notification > 0 %}{{ thread.notification }} post(s) in {{ thread.title }}{% endif %}
+    {% endfor %}
+
+    {% if profile_image_status == 0 %}
+        <img src="/site_media/img/user_images/male_user.png" alt="Male User Image"/>
+    {% else %}
+    {% if profile_image_status == 1 %}
+        <img src="/site_media/img/user_images/female_user.png" alt="Male User Image"/>
+    {% else %}
+    {% endif %}
+    {% endif %}
+    <input id="upload_button" type="button" name="upload" value="Upload"/>
+    <div id="upload_select_table" style="width:100px;height:100px;background-color:brown;display:none">
+        <a href="/upload/book/" >Book Upload</a>
+        <a href="/upload/image" >Image Upload</a>
+        <a href="/upload/video" >Video Upload</a>
+    </div>
+    <script type="text/javascript">
+        $("#upload_button").click(function(){
+            var select_table=$("#upload_select_table");
+            if(select_table.css("display")=="none") {select_table.fadeIn();}
+            else {select_table.fadeOut();}
+        })
+    </script>
+
+{% else %}
+    Ten: {{ other_user.username }}<br/>
+    {% if not is_friend %}
+        <a href="/make_friend?id={{ other_user.id }}">
+        <input type="button" value="Make Friend"/>
+        </a>
+    {% else %}
+        You are friend with {{ other_user.username }}
+    {% endif %}
+
+{% endif %}
+
+{% endblock %}
