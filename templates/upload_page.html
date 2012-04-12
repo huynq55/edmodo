@@ -1,10 +1,9 @@
-{% extends "user_page.html" %}
-{% block title %}Upload{% endblock %}
-{% block contentCatagories %}
-    <div class="modal-header">
-        <h2>Select the file to upload</h2>
-    </div>
-    <br>
+<html>
+<head>
+    <title>Upload Page</title>
+</head>
+<body>
+    <h2>Select {{ title }} to upload</h2>
     <form enctype="multipart/form-data" method="post" action=".">
         <table id="upload_table">
             {% csrf_token %}
@@ -13,5 +12,6 @@
         </table>
         <input type="submit" value="Upload"/>
     </form>
-    Status {{ status }}
-{% endblock %}
+    Status{{ status }}
+</body>
+</html>

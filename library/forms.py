@@ -152,3 +152,20 @@ class NewThreadForm(forms.Form):
         max_length=200,
         label='Subject',
     )
+
+class AddVideoForm(forms.Form):
+    url=forms.CharField(
+        max_length=300,
+        label='URL'
+    )
+    description=forms.Field(
+        widget=forms.Textarea(),
+        label='Description',
+    )
+    public_share=forms.BooleanField(
+        initial=False,
+        label='Public Sharing',
+    )
+
+
+

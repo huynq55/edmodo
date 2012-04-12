@@ -198,7 +198,7 @@ def file_upload(request,upload_type):
     if upload_type=='image':
         return image_upload(request)
     if upload_type=='video':
-        return video_upload(request)
+        return AddVideo(request)
 
 def book_upload(request):
     if request.method=='POST':
@@ -250,7 +250,7 @@ def book_upload(request):
     form=UploadFileForm(label_suffix='')
     title='a book'
     status=2
-    return render_to_response('book_upload_page.html',RequestContext(request,{'form':form,'title':title,'status':status}))
+    return render_to_response('upload_page.html',RequestContext(request,{'form':form,'title':title,'status':status}))
 
 def file_upload_success(request):
     return render_to_response('successfully_upload_page.html')
@@ -470,3 +470,36 @@ def create_thread(request,pk):
             title=new_thread_form.cleaned_data['subject'],
         )
         new_thread.save()
+
+
+def AddVideo(request):
+    if request.method == 'POST':
+        form=AddVideoForm(request.POST)
+        if form.is_valid():
+            video_url=form.cleaned_data['url']
+            video_description=form.cleaned_data['description']
+            video_share=form.cleaned_data['public_share']
+            video = Video.objects.create(
+                url=video_url,
+                description=video_description,
+                public_share=video_share,
+                uploader=request.user,
+            )
+            video.save()
+            return HttpResponseRedirect("/video/success")
+        form=AddVideoForm()
+    form=AddVideoForm()
+    var=RequestContext(request,{
+        'form':form
+    })
+    return render_to_response('Video/add_video.html',var)
+
+def AddVideoSuccess(request):
+    return render_to_response('Video/success.html')
+
+def VideoPage(request):
+    videos=Video.objects.all()
+    var=RequestContext(request,{
+        'videos': videos
+    })
+    return render_to_response('Video/video_page.html', var)

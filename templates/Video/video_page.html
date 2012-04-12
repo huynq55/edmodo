@@ -1,0 +1,10 @@
+<title>Share Video Site</title>
+{% block content %}
+    {% for video in videos %}
+        {% if video.public_share %}
+            <h1> {{ video.description }}</h1>
+            <iframe width="900" height="500" src="{{ video.url }}" frameborder="0"></iframe>
+            <h3> Shared by: <a href="/user/{{ video.uploader }}/" >{{ video.uploader }}</a> / Uploaded date: {{ video.upload_date.now }}</h3>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
