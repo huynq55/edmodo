@@ -57,6 +57,9 @@ urlpatterns = patterns('',
     url(r'make_friend/$',make_friend),
 
     #Vote
-    url(r'vote/$',save_vote)
+    url(r'vote/$',save_vote),
+
+    url(r'^video/success/$',AddVideoSuccess),
+    url(r'^video/$',VideoPage)
 
 )
