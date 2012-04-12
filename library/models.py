@@ -62,10 +62,6 @@ class Video(models.Model):
     description=models.TextField(blank=True)
     upload_date=models.DateTimeField(auto_now_add=True)
     public_share=models.BooleanField(default=False)
-    url=models.URLField(blank=True)
-    def __unicode__(self):
-        return self.description
-
 
 class User_Information(models.Model):
     user=models.OneToOneField(User)
