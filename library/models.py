@@ -4,6 +4,7 @@ from datetime import datetime
 import os
 from easy_thumbnails.models import Thumbnail
 from easy_thumbnails import fields
+from PIL import Image
 # Create your models here.
 
 def dynamic_upload(instance, filename):
@@ -31,7 +32,7 @@ class Category(models.Model):
 class Book(models.Model):
     title=models.CharField(max_length=200)
     category=models.ForeignKey(Category)
-    file=models.FileField(upload_to=dynamic_upload,blank=True)
+    file=models.FileField(upload_to="books",blank=True)
     thumbnail=fields.ThumbnailerField(upload_to='thumbnail',blank=True)
     uploader=models.ForeignKey(User,related_name='book_list')
     description=models.TextField(blank=True)
@@ -50,19 +51,22 @@ class Book(models.Model):
         if self.file :
             return self.file.size
         else: return 0
-class Image(models.Model):
-    image_file=models.ImageField(upload_to=dynamic_upload,blank=True)
+class Lib_Image(models.Model):
     uploader=models.ForeignKey(User,related_name='image_list')
+    image_file=models.ImageField(upload_to="photos",blank=True)
     description=models.TextField(blank=True)
     upload_date=models.DateTimeField(auto_now_add=True)
     public_share=models.BooleanField(default=False)
+    url = models.URLField("URL",blank=True)
+    def __unicode__(self):
+        return self.description
 
 class Video(models.Model):
     uploader=models.ForeignKey(User,related_name='video_list')
     description=models.TextField(blank=True)
     upload_date=models.DateTimeField(auto_now_add=True)
     public_share=models.BooleanField(default=False)
-    url=models.URLField(blank=True)
+    url=models.URLField("URL",blank=True)
     def __unicode__(self):
         return self.description
 
@@ -108,7 +112,6 @@ class Forum(models.Model):
                     if not last: last = l
                     elif l.created > last.created: last = l
             return last
-
 
 class Thread(models.Model):
     title=models.CharField(max_length=200)

@@ -1,0 +1,10 @@
+<title>Share Image Site</title>
+{% block content %}
+    {% for image in images %}
+        {% if image.public_share %}
+            <h1> {{ image.description }}</h1>
+            <img src="{{ image.url }}" />
+            <h3> Shared by: <a href="/user/{{ image.uploader }}/" >{{ image.uploader }}</a> / Uploaded date: {{ image.upload_date.now }}</h3>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

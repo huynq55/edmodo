@@ -1,12 +1,12 @@
 from django.http import *
 from library.forms import *
+from library.models import *
 
 from django.http import  HttpResponseRedirect,HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template.context import RequestContext,Context
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
-from library.models import *
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib import auth
@@ -196,7 +196,7 @@ def file_upload(request,upload_type):
     if upload_type=='book':
         return book_upload(request)
     if upload_type=='image':
-        return image_upload(request)
+        return option(request)
     if upload_type=='video':
         return AddVideo(request)
 
@@ -503,3 +503,78 @@ def VideoPage(request):
         'videos': videos
     })
     return render_to_response('Video/video_page.html', var)
+
+def option(request):
+    return  render_to_response('Photos/option.html')
+
+def uploadImage(request):
+    if request.method == 'POST':
+        form=UploadImageForm(request.POST,request.FILES)
+        if form.is_valid():
+            image_file=form.cleaned_data['up_file']
+            image_description=form.cleaned_data['description']
+            image_share=form.cleaned_data['public_share']
+
+            image=Lib_Image.objects.create(
+                image_file=image_file,
+                uploader=request.user,
+                description=image_description,
+                public_share=image_share,
+                url='',
+            )
+            image.save()
+            url=image.image_file.url
+            image.delete()
+            image=Lib_Image.objects.create(
+                image_file=image_file,
+                uploader=request.user,
+                description=image_description,
+                public_share=image_share,
+                url=url,
+            )
+            image.save()
+            return HttpResponseRedirect("/image/success")
+        form=UploadImageForm()
+    form=UploadImageForm()
+    var=RequestContext(request,{
+        'form':form
+    })
+
+    return render_to_response('Photos/uploadImage.html',var)
+
+
+def addImage(request):
+    if request.method=='POST':
+        form=AddImageLinkForm(request.POST)
+        if form.is_valid():
+            image_url=form.cleaned_data['url']
+            image_description=form.cleaned_data['description']
+            image_share=form.cleaned_data['public_share']
+            
+            image=Lib_Image.objects.create(
+                url=image_url,
+                description=image_description,
+                public_share=image_share,
+                uploader=request.user,
+            )
+            
+            image.save()
+            return HttpResponseRedirect("/image/success")
+        form=AddImageLinkForm()
+    form=AddImageLinkForm()
+    var=RequestContext(request,{
+        'form':form
+    })
+    return render_to_response("Photos/addImageLink.html",var)
+
+def ImageDone(request):
+    return render_to_response("Photos/success.html")
+
+def ImagePage(request):
+    images=Lib_Image.objects.all()
+    var=RequestContext(request,{
+        'images':images
+    })
+    return render_to_response('Photos/image_page.html',var)
+
+

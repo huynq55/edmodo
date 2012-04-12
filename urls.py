@@ -2,20 +2,15 @@ from django.conf.urls.defaults import *
 from django.views.generic.simple import direct_to_template
 from library.views import *
 from django.contrib import admin
-from settings import MEDIA_ROOT
+import settings
 admin.autodiscover()
-
-site_media=os.path.join(
-    os.path.dirname(__file__),'site_media'
-)
-storage=MEDIA_ROOT
 
 urlpatterns = patterns('',
     # Static folder
     url(r'^site_media/(?P<path>.*)$','django.views.static.serve',
-            {'document_root': site_media }),
+            {'document_root': settings.STATIC_ROOT }),
     (r'^storage/(?P<path>.*)$', 'django.views.static.serve',
-         {'document_root': storage}),
+         {'document_root': settings.MEDIA_ROOT}),
 
     #Admin doc
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -60,6 +55,10 @@ urlpatterns = patterns('',
     url(r'vote/$',save_vote),
 
     url(r'^video/success/$',AddVideoSuccess),
-    url(r'^video/$',VideoPage)
+    url(r'^video/$',VideoPage),
 
+    url(r'^image/upload/$',uploadImage),
+    url(r'^image/add/$',addImage),
+    url(r'^image/success/$',ImageDone),
+    url(r'^image/$',ImagePage)
 )

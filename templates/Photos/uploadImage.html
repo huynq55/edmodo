@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Upload Image Page</title>
+</head>
+{% block content%}
+    <h1>Upload Image</h1>
+    <form action="." method="post" enctype="multipart/form-data">
+        <table id="upload_table">
+            {% csrf_token %}
+            {{ form.as_table }}
+        </table>
+
+        <input type="submit" value="Upload" />
+    </form>
+{% endblock %}
+</html>

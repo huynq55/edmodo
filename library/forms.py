@@ -171,3 +171,36 @@ class AddVideoForm(forms.Form):
     url.widget.attrs['value']="http://"
 
 
+class UploadImageForm(forms.Form):
+    up_file=forms.ImageField(
+        label='Image URL',
+    )
+
+    description=forms.Field(
+        widget=forms.Textarea(),
+        label='Description',
+    )
+    public_share=forms.BooleanField(
+        initial=False,
+        label='Public Sharing',
+    )
+    up_file.widget.attrs['size']=55
+    description.widget.attrs['cols']=50
+
+class AddImageLinkForm(forms.Form):
+    url=forms.URLField(
+        max_length=300,
+        label='URL',
+    )
+    description=forms.Field(
+        widget=forms.Textarea(),
+        label='Description',
+    )
+    public_share=forms.BooleanField(
+        initial=False,
+        label='Public Sharing',
+    )
+
+    url.widget.attrs['size']=54
+    url.widget.attrs['value']="http://"
+
