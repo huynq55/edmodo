@@ -1,0 +1,51 @@
+{% extends "Forum/base_forum.html" %}
+{% block title %} {{ forum_title }} {% endblock %}
+{% block base_forum_content %}
+    <h2>{{ forum_title }}</h2>
+    <div class="list">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th style="width:300px"> <h3>Thread</h3></th>
+                    <th style="width:100px"> <h3>Posts</h3></th>
+                    <th style="width:300px"> <h3>Last post</h3></th>
+                    <th> <h3>View</h3></th>
+                </tr>
+            </thead>
+
+            {% for thread in threads.object_list %}
+                <tr>
+                    <td style="width:40%">
+                        <h4><a href="/thread/{{ thread.id }}">{{ thread.title }}</a></h4>
+                    </td>
+                    <td style="width:15%"><span style="font:bold 16px Arial">{{ thread.num_posts }}</span></td>
+                    <td style="width:40%">
+                        {% if thread.last_post %}
+                        by <a href="/user/{{ thread.last_post.creator.username }}" style="color:#ff0000;"><b>{{ thread.last_post.creator.username }}</b></a>
+                        at <b>{{ thread.last_post.created }}</b>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="/thread/{{ thread.id }}/"><input type="button" value="View"/></a>
+                    </td>
+                </tr>
+
+            {% endfor %}
+        </table>
+    </div>
+
+    {# --------Phan trang------- #}
+    {% with object_holder=threads %}
+        {% include "Paginator/paginator.html" %}
+    {% endwith %}
+    {# --------Het phan trang------- #}
+
+    <form method="post" action=".">
+        <table>
+            {% csrf_token %}
+            {{ new_thread_form.as_table }}
+        </table>
+        <input type="submit" value="New Thread"/>
+    </form>
+
+{% endblock %}

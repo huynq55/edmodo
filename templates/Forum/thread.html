@@ -1,39 +1,71 @@
-<!-- Posts  -->
-<div class="title"><h2>{{ title }}</h2></div>
-<div id="list">
-
-    {% for post in posts.object_list %}
-        <div class="post">
-            {{ post.content }}<br />
-            by {{ post.creator }} | <span class="date">{{ post.created }}</span> <br /><br />
+{% extends "Forum/base_forum.html" %}
+{% block title %}{{ thread_title }}{% endblock %}
+{% block base_forum_external %}
+    <link rel="stylesheet" type="text/css" href="/site_media/css/Forum/thread.css"/>
+{% endblock %}
+{% block base_forum_content %}
+    <h2>{{ thread_title }}</h2>
+    {% if posts.object_list.count == 0 %}
+        <h4>There is no post here</h4><br/>
+    {% else %}
+        <h4>There are {{ posts.object_list.count }} post(s) here</h4><br/>
+        <div class="well" style="background-color: #ffeec3;">
+            <div id="post_list">
+                {% for post in posts.object_list %}
+                    <table class="post_table" style="width:100%">
+                        <tr>
+                            <td class="post_table_field_1" style="width: 60px">
+                                <div class="user_avatar">
+                                    <a href="/user/{{ post.creator.username }}"><img width="50px" style="height: 50px;"src="{{ post.creator.user_information.avatar_url }}"/></a>
+                                </div>
+                            </td>
+                            <td class="post_table_field_2">
+                                <div class="well sidebar-nav post_frame">
+                                    <ul class="nav nav-list" style="background-color: #c7ff8e;">
+                                        <li class="post_header">
+                                            Posted at: {{ post.created }}
+                                        </li>
+                                    </ul>
+                                    <div class="post_body">
+                                        <div class="thanks_btn">
+                                            {% if post.creator != user  %}
+                                                <a href="/thank/{{ post.id }}"><input type="button" value="Thanks"/></a>
+                                            {% endif %}
+                                        </div>
+                                        <div class="post_content">
+                                            {{ post.content }}<br/>
+                                            {% if post.link %}
+                                                <a href="{{ post.link }}">{{ post.link }}</a><br/>
+                                            {% endif %}
+                                        </div>
+                                        <hr/><span style="font:bold 14px Arial">Thanked:</span>
+                                        {% if post.thank_set.all %}
+                                            {% for thanker in post.thank_set.all %}
+                                                <a href="/user/{{ thanker.from_user.username }}">{{ thanker.from_user.username }}</a>,
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                {% endfor %}
+            </div>
         </div>
-    {% endfor %}
-</div>
-
-<!-- Next/Prev page links  -->
-{% if posts.object_list and posts.paginator.num_pages > 1 %}
-    <div class="pagination">
-    <span class="step-links">
-        {% if posts.has_previous %}
-            <a href= "?page={{ posts.previous_page_number }}">previous &lt;&lt; </a>
-        {% endif %}
-
-        <span class="current">
-            &nbsp;Page {{ posts.number }} of {{ posts.paginator.num_pages }}
-        </span>
-
-        {% if posts.has_next %}
-            <a href="?page={{ posts.next_page_number }}"> &gt;&gt; next</a>
-        {% endif %}
-    </span>
+    {% endif %}
+    {# --------Phan trang------- #}
+    {% with object_holder=posts %}
+        {% include "Paginator/paginator.html" %}
+    {% endwith %}
+    {# --------Het phan trang------- #}
+    <div id="new_post_form">
+        <form method="post" action=".">
+            <table>
+                {% csrf_token %}
+                {{ new_post_form.as_table }}
+            </table>
+            <input type="submit" value="Reply"/>
+        </form>
     </div>
-{% endif %}
 
-<form method="post" action=".">
-    <table>
-        {% csrf_token %}
-        {{ reply_form.as_table }}
-    </table>
-    <input type="submit" value="Reply"/>
-</form>
-
+{% endblock %}

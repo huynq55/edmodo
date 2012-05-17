@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Registration{% endblock %}
+{% block content %}
+
+    <div class="hero-unit">
+    <h1 style="color: red; font-size: 24px; text-align: center">Congratulation! You have successfully register to our library. <br><br>
+        Please waiting during 5 seconds, this page will redirect to Login page!
+    </h1>
+    </div>
+
+{% endblock %}
+
+{% block extra_meta %}
+    <meta http-equiv="Refresh" content="5, url=/accounts/login/">
+{% endblock %}

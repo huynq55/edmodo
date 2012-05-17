@@ -1,0 +1,14 @@
+{% extends "User/base_user_page.html" %}
+{% block title %}{{ user.username }}|Image Link Upload{% endblock %}
+{% block base_user_content%}
+    <h1> Image Link Upload</h1>
+    <h4>{{ status }}</h4>
+    <br/>
+    <form method="post" enctype="multipart/form-data" action=".">
+        <table>
+            {% csrf_token %}
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Upload Link" />
+    </form>
+{% endblock %}

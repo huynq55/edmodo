@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block external %}
+    <link rel="stylesheet" type="text/css" href="/site_media/css/Media_object/media_objects_page.css"/>
+    {% block base_media_objects_page_external %}{% endblock %}
+{% endblock %}
+{% block content %}
+    <div class="navbar-inner-background">
+        <div class="row-fluid">
+            <div class="modal" style="position: relative; top: auto; left: auto; margin: 0 8% auto; z-index: 1">
+                <div class="modal-header">
+                    <div class="pull-center">
+                        {% block media_objects_page_title %}{% endblock %}
+                    </div>
+                    <div class="modal-body" style="padding:10px 10px 10px 10px;">
+                        {% block media_objects_page_content %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+            <!--/span-->
+        </div>
+        <br/> <br/>
+    </div>
+    <br/>
+{% endblock %}

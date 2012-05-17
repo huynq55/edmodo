@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block external %}
+    <link rel="stylesheet" type="text/css" href="/site_media/css/Account/login.css"/>
+{% endblock %}
+{% block content %}
+    <div id="welcome">
+        <form class="well" >
+            <div id="p_header">
+                <h4>
+                    Group4's Corp <br/>
+                    Welcome anonymous user!
+                    You need to <span style="color:#ff0000">login</span> to see or manage your data.
+                </h4>
+            </div>
+        </form>
+    </div>
+    <head>
+        <!-- Landing Page Content -->
+    <div id="group4-logo" align="center" style="padding:5px 5px 5px 5px;">
+        <img style="border: 2px #ff740a solid;" src="/site_media/img/Group4.png">
+    </div>
+
+    <!-- Login Form -->
+    <div class="pull-center">
+        <form class="form-inline" method="post" action=".">
+            {% csrf_token %}
+            <input type="text" name="username" class="input-medium" placeholder="Username">
+            <input type="password" name="password" class="input-medium" placeholder="Password">
+
+            <input type="submit" class="btn-huge" value="Login"/>
+            <input type="hidden" name="next" value="/"/>
+            <div id="password-invalid"> {{ status }}</div>
+        </form>
+    </div>
+    <!--end form-->
+
+    <div id="signup-wrap">
+        <div id="signup">
+            <p>If you still don't have any account <br><br> Sign up now. It’s Free!</p>
+            <div>
+                <a href="/register" class="btn btn-large">Register</a>
+            </div>
+        </div>
+    </div>
+    <!-- End of Landing Page Content -->
+{% endblock %}
+

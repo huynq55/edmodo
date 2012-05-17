@@ -1,0 +1,35 @@
+{% extends "Media_object/base_media_object.html" %}
+{% block title %}Book | {{ book.id }}{% endblock %}
+{% block base_media_object_external %}
+    <link rel="stylesheet" type="text/css" href="/site_media/css/Media_object/media_object_info.css"/>
+{% endblock %}
+{% if not is_shared %}
+    {% block media_object_not_shared %}
+        This book is set to be private.You must be friend with <a href="/user/{{ book.uploader }}">{{ book.uploader }}</a> to view this book
+    {% endblock %}
+{% else %}
+    {% block media_object_title %}{{ book.title }}{% endblock %}
+
+    {% block media_object_content %}
+        <iframe src="http://docs.google.com/gview?url={{ book.book_file.url }}&embedded=true"
+                style="width:600px; height:500px;" frameborder="0"></iframe>
+        <br/><br/>
+        <h4>
+            You should follow this <a href="/download/book/{{ book.id }}">link </a>to download the book
+        </h4>
+    {% endblock %}
+
+    {% block media_object_information %}
+        {% with media_object=book %}
+            {% with media_object_type="book" %}
+                {% include "Media_object/media_object_detail_info.html" %}
+            {% endwith %}
+        {% endwith %}
+    {% endblock %}
+
+    {% block media_object_statistics %}
+        {% with media_object=book %}
+            {% include "Media_object/media_object_statistic.html" %}
+        {% endwith %}
+    {% endblock %}
+{% endif %}

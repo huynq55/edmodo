@@ -1,0 +1,49 @@
+{% extends "User/base_user_page.html" %}
+{% block title %}{{ user.username }}|Profile{% endblock %}
+{% block base_user_external %}
+    <link rel="stylesheet" type="text/css" href="/site_media/css/User/user_profile.css"/>
+{% endblock %}
+{% block base_user_content %}
+    <h2>My Profile</h2><br/>
+    <form method="post" action="/user/{{ user.username }}/profile_config/">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>First name</td>
+                <td>{{ info_form.first_name }}</td>
+            </tr>
+            <tr>
+                <td>Last name</td>
+                <td>{{ info_form.last_name }}</td>
+            </tr>
+            <tr>
+                <td>
+                    Gender
+                </td>
+                <td>
+                    {{ info_form.gender }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Birthday
+                </td>
+                <td>
+                    Day: {{ info_form.day }}&nbsp;&nbsp;
+                    Month: {{ info_form.month }}&nbsp;&nbsp;
+                    Year: {{ info_form.year }}&nbsp;&nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    About
+                </td>
+                <td>
+                    {{ info_form.about }}
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Save"/>
+    </form>
+
+{% endblock %}

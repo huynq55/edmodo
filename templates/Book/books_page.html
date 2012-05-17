@@ -1,0 +1,34 @@
+{% extends "Media_object/base_media_objects_page.html" %}
+{% block title %}Books{% endblock %}
+{% block media_objects_page_title %}<h2><span style="color:#1020b5;">Books</span></h2>{% endblock %}
+{% block media_objects_page_content %}
+    <div class="media_object_list">
+        <table class="table table-bordered media_object_table">
+            <tr>
+                <th style="width:15%">Thumbnail</th>
+                <th style="width:16%">Title</th>
+                <th style="width:12%">Uploader</th>
+                <th style="width:22%">Uploaded Date</th>
+                <th style="width:11%">Sharing</th>
+                <th style="width:12%">Viewers</th>
+                <th>Voters</th>
+            </tr>
+            {% for book in books.object_list %}
+                <tr>
+                    <td class="mo_thumbnail">
+                        <a href="/book/{{ book.id }}"><img src="/site_media/img/default_book_icon/book-icon-small.png"/></a>
+                    </td>
+                    <td class="mo_title">{{ book.title }} </td>
+                    <td class="mo_uploader"><a href="/user/{{ book.uploader.username }}/">{{ book.uploader.username }}</a></td>
+                    <td class="mo_uploaded_date">{{ book.upload_date }}</td>
+                    <td class="mo_sharing">
+                        {% if book.public_share %}Public
+                        {% else %}Private{% endif %}
+                    </td>
+                    <td class="mo_viewers">{{ book.viewers.count }}</td>
+                    <td class="mo_voters">{{ book.voters.count }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

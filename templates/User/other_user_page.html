@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}{{ other_user.username }}{% endblock %}
+{% block external %}
+    <link rel="stylesheet" type="text/css" href="/site_media/css/User/base_user.css"/>
+    <link rel="stylesheet" type="text/css" href="/site_media/css/User/other_user.css"/>
+{% endblock %}
+{% block content %}
+    <div class="navbar-inner-background">
+        <div class="row-fluid">
+            <div class="span3">
+                <div class="well sidebar-nav" style="background-color: white">
+                    <ul class="nav nav-list">
+                        <li class="active" ><a href=""><b>Profile Picture</b></a></li>
+                        <li class="divider"></li>
+                        <li>
+                            <img class="avatar" width="200px" style="height:200px" src="{{ other_user.user_information.avatar_url }}" alt="{{ other_user.username }}"/>
+                        </li>
+                    </ul>
+                </div>
+                <br>
+            </div>
+            <!--/span-->
+            <div class="span7">
+                <div class="modal" style="position: relative; top: auto; left: auto; margin: 0 auto; z-index: 1">
+                    <div class="modal-body">
+                        <h2><a href="/user/{{ other_user.username }}" style="color:red;">{{ other_user.username }}</a>'s Information</h2>
+                        <h3>
+                            {% if other_user_name %}
+                                Name: <span style="color:#ff9505;">{{ other_user_name }}</span><br/>
+                            {% else %}
+                                Name:<br/>
+                            {% endif %}
+
+                            {% if other_user_age %}
+                                Age: <span style="color:#ff9505;">{{ other_user_age }}</span><br/>
+                            {% else %}
+                                Age:<br/>
+                            {% endif %}
+
+                            {% if other_user_gender == 0 %}Gender:<br/>{% endif %}
+                            {% if other_user_gender == 1 %}Gender: <span style="color:#ff9505;">Male</span><br/>{% endif %}
+                            {% if other_user_gender == -1%}Gender: <span style="color:#ff9505;">Female</span><br/>{% endif %}
+                        </h3>
+                        {% if other_user_about %}
+                            <h3>About: </h3>
+                            <div class="other_user_about">
+                                {{ other_user_about }}
+                            </div>
+                        {% else %}
+                            <h3>About:</h3>
+                        {% endif %}
+                    </div>
+                    <div class="modal-footer">
+                        {% if is_friend %}
+                            <h4>You and {{ other_user.username }} are friends</h4>
+                        {% else %}
+                            {% if not is_friend_request %}
+                                <a href="/make_friend?id={{ other_user.id }}"><input type="button" value="Add as friend"></a>
+                            {% else %}
+                                <h4>You are waiting <span style="color:#ff0000;">{{ other_user.username }}</span> to accept your friend request</h4>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+            <!--/span-->
+
+            <div class="span2">
+                <div class="well sidebar-nav" style="margin-bottom: 10px">
+                    <ul class="nav nav-list">
+                        <li class="user_media_object_statistic_active active"><a>Books</a></li>
+                        <li class="divider"></li>
+                        <li class="user_media_object_statistic">Uploads: <span style="color:#ea5cff;">{{ other_user.book_list.count }}</span></li>
+                        <li class="user_media_object_statistic">Votes: <span style="color:#ea5cff;">{{ other_user.voted_book_set.count }}</span></li>
+                        <li class="user_media_object_statistic">Views: <span style="color:#ea5cff;">{{ other_user.viewed_book_set.count }}</span></li>
+                    </ul>
+                </div>
+
+                <div class="well sidebar-nav" style="margin-bottom: 10px">
+                    <ul class="nav nav-list">
+                        <li class="user_media_object_statistic_active active"><a>Images</a></li>
+                        <li class="divider"></li>
+                        <li class="user_media_object_statistic">Uploads: <span style="color:#ea5cff;">{{ other_user.image_list.count }}</span></li>
+                        <li class="user_media_object_statistic">Votes: <span style="color:#ea5cff;">{{ other_user.voted_image_set.count }}</span></li>
+                        <li class="user_media_object_statistic">Views: <span style="color:#ea5cff;">{{ other_user.viewed_image_set.count }}</span></li>
+
+                    </ul>
+                </div>
+                <div class="well sidebar-nav" style="margin-bottom: 10px">
+                    <ul class="nav nav-list">
+                        <li class="user_media_object_statistic_active active"><a>Videos</a></li>
+                        <li class="divider"></li>
+                        <li class="user_media_object_statistic">Uploads: <span style="color:#ea5cff;">{{ other_user.video_list.count }}</span></li>
+                        <li class="user_media_object_statistic">Votes: <span style="color:#ea5cff;">{{ other_user.voted_video_set.count }}</span></li>
+                        <li class="user_media_object_statistic">Views: <span style="color:#ea5cff;">{{ other_user.viewed_video_set.count }}</span></li>
+                    </ul>
+                </div>
+                <!--/.well -->
+            </div>
+            <!--/span-->
+        </div>
+        <!--/row-->
+
+        <br> <br>
+    </div>
+    <br>
+
+{% endblock %}

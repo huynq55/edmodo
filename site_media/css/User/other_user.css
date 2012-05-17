@@ -1,0 +1,14 @@
+.other_user_about{
+    width:80%;
+    height: auto;
+    min-height:60px;
+    background-color: #ffffff;
+    border:1px #d4d4d4 solid;
+    padding: 5px 5px 5px 5px;
+
+    font:normal 14px Arial;
+
+    -moz-border-radius:6px 6px 6px 6px;
+    -webkit-border-radius:6px 6px 6px 6px;
+    border-radius:6px 6px 6px 6px;
+}

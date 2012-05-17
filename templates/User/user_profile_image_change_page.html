@@ -1,0 +1,17 @@
+{% extends 'User/base_user_page.html' %}
+{% block title %}{{ user.username }}|Avatar{% endblock %}
+{% block base_user_content %}
+    <h2>My Profile Picture</h2>
+    <img class="avatar" width="200px" style="height:200px" src="{{ avatar_url }}"/>
+
+    <div id="profile_image_change_form">
+        <form method="post" enctype="multipart/form-data"  action=".">
+            <table>
+                {% csrf_token %}
+                {{ form.as_table }}
+            </table><br/>
+            <input type="submit" value="Change Avatar"/>
+        </form>
+    </div>
+    <h4>{{ status }}</h4>
+{% endblock %}

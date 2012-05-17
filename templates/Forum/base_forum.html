@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block external %}
+    <link rel="stylesheet" type="text/css" href="/site_media/css/Forum/base_forum.css"/>
+    {% block base_forum_external %}{% endblock %}
+{% endblock %}
+{% block content %}
+    <div class="navbar-inner-background">
+        <div class="row-fluid">
+            <div class="span3">
+                <div class="well" style="padding-left: 8px">
+                    <ul class="nav nav-list">
+                        <li class="active" style="font:bold 18px Arial"><a>My Achievements</a></li>
+                        <li class="divider"></li>
+                        <li class="forum_statistic">Threads: <span style="color:#ea5cff;">{{ user.thread_set.count }}</span></li>
+                        <li class="forum_statistic">Posts: <span style="color:#ea5cff;">{{ user.post_set.count }}</span></li>
+                        <li class="forum_statistic">Thanks: <span style="color:#ea5cff;">{{ user.has_thanked_set.count }}</span></li>
+                        <li class="forum_statistic">Be Thanked: <span style="color:#ea5cff;">{{ user.be_thanked_set.count }}</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="span9">
+                {% block base_forum_content %}{% endblock %}
+            </div>
+        </div>
+        <br/>
+    </div>
+    <br/>
+{% endblock %}

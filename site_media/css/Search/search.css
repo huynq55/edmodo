@@ -1,0 +1,15 @@
+#search_table{
+    background-color: #fbe9ff;
+    border-collapse: separate;
+    *border-collapse: collapsed;
+    -moz-border-radius: 8px 8px 8px 8px;
+    -webkit-border-radius:8px 8px 8px 8px;
+    border-radius:8px 8px 8px 8px;
+}
+#search_table tr td{
+    padding: 10px 10px 5px 10px;
+}
+.searched_word{
+    color: #1d44ff;
+    background-color: #feff12;
+}

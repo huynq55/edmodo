@@ -1,0 +1,25 @@
+.media_object_list{
+    background-color: #f9ffd7;
+    border: 2px #ffdd7a solid;
+    padding: 5px 5px 5px 5px;
+    margin-top:10px;
+
+    -moz-border-radius:8px 8px 8px 8px;
+    -webkit-border-radius:8px 8px 8px 8px;
+    border-radius:8px 8px 8px 8px;
+}
+.media_object_table{
+    width:100%;
+}
+.media_object_table tr th{
+    vertical-align: middle;
+    text-align:center;
+    font:bold 16px Arial;
+    background-color: #6ff5ef;
+}
+.media_object_table tr td{
+    vertical-align: middle;
+    text-align:center;
+    font:normal 14px Arial;
+    padding:4px 2px 2px 2px;
+}

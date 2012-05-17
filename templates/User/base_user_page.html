@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block external %}
+    <link rel="stylesheet" type="text/css" href="/site_media/css/User/base_user.css"/>
+    {% block base_user_external %}{% endblock %}
+{% endblock %}
+
+{% block content %}
+    <div class="navbar-inner-background">
+        <div class="row-fluid">
+            <div class="span3">
+                <div class="well sidebar-nav" style="background-color: white">
+                    <ul class="nav nav-list">
+                        <li class="active" ><a href="/user/{{ user.username }}/profile_image_change"><b>Profile Picture</b></a></li>
+                        <li class="divider"></li>
+                        <li>
+                            <img class="avatar" width="200px" style="height:200px" src="{{ user.user_information.avatar_url }}" alt="{{ user.username }}"/>
+                        </li>
+                    </ul>
+                </div>
+                <br/>
+                <div class="well sidebar-nav">
+                    <ul class="nav nav-list">
+                        <li class="active"><a><b>Functions</b></a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">Upload<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/upload/book">Book Upload</a></li>
+                                <li><a href="/upload/image">Image Upload</a></li>
+                                <li><a href="/upload/image_link">Image Link Upload</a></li>
+                                <li><a href="/upload/video_link">Video Link Upload</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <br/>
+
+                <div class="well sidebar-nav">
+                    <ul class="nav nav-list">
+                        <li class="active"><a><b>Friends</b></a></li>
+                        <li class="divider"></li>
+                        {% load modulo_filter %}
+                        <table>
+                            <tr>
+                            {% for friend in user.friend_list.all %}
+                                <td style="padding: 2px 2px 2px 2px">
+                                <a href="/user/{{ friend.friend.username }}" style="text-decoration: none;">
+                                    <img class="friend_avatar" width="40px" style="height:40px;"
+                                         src="{{ friend.friend.user_information.avatar_url }}" alt="{{ friend.friend.username }}"/>
+                                </a>
+                                </td>
+                                {% if not forloop.counter|mod:4 %}
+                                    </tr><tr>
+                                {% endif %}
+                            {% endfor %}
+                            </tr>
+                        </table>
+                    </ul>
+                </div>
+                <!--/.well -->
+            </div>
+            <!--/span-->
+
+            <div class="span7">
+                <ul class="breadcrumb">
+                    <ul id="tab" class="nav nav-tabs">
+                        <li class=""><a href="/user/{{ user.username }}/books">Books</a></li>
+                        <li class=""><a href="/user/{{ user.username }}/videos">Videos</a></li>
+                        <li class=""><a href="/user/{{ user.username }}/images">Images</a></li>
+                    </ul>
+                </ul>
+                <div class="modal" style="position: relative; top: auto; left: auto; margin: 0 auto; z-index: 1">
+                    <div class="modal-body">
+                        {% block base_user_content %}{% endblock %}
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+
+            </div>
+            <!--/span-->
+
+            <div class="span2">
+                <div class="well sidebar-nav" style="margin-bottom: 10px">
+                    <ul class="nav nav-list">
+                        <li class="user_media_object_statistic_active active"><a>Books</a></li>
+                        <li class="divider"></li>
+                        <li class="user_media_object_statistic">Uploads: <span style="color:#ea5cff;">{{ user.book_list.count }}</span></li>
+                        <li class="user_media_object_statistic">Votes: <span style="color:#ea5cff;">{{ user.voted_book_set.count }}</span></li>
+                        <li class="user_media_object_statistic">Views: <span style="color:#ea5cff;">{{ user.viewed_book_set.count }}</span></li>
+                    </ul>
+                </div>
+
+                <div class="well sidebar-nav" style="margin-bottom: 10px">
+                    <ul class="nav nav-list">
+                        <li class="user_media_object_statistic_active active"><a>Images</a></li>
+                        <li class="divider"></li>
+                        <li class="user_media_object_statistic">Uploads: <span style="color:#ea5cff;">{{ user.image_list.count }}</span></li>
+                        <li class="user_media_object_statistic">Votes: <span style="color:#ea5cff;">{{ user.voted_image_set.count }}</span></li>
+                        <li class="user_media_object_statistic">Views: <span style="color:#ea5cff;">{{ user.viewed_image_set.count }}</span></li>
+
+                    </ul>
+                </div>
+                <div class="well sidebar-nav" style="margin-bottom: 10px">
+                    <ul class="nav nav-list">
+                        <li class="user_media_object_statistic_active active"><a>Videos</a></li>
+                        <li class="divider"></li>
+                        <li class="user_media_object_statistic">Uploads: <span style="color:#ea5cff;">{{ user.video_list.count }}</span></li>
+                        <li class="user_media_object_statistic">Votes: <span style="color:#ea5cff;">{{ user.voted_video_set.count }}</span></li>
+                        <li class="user_media_object_statistic">Views: <span style="color:#ea5cff;">{{ user.viewed_video_set.count }}</span></li>
+                    </ul>
+                </div>
+                <!--/.well -->
+            </div>
+            <!--/span-->
+        </div>
+        <!--/row-->
+    <br/><br/>
+    </div>
+    <br/>
+{% endblock %}

@@ -1,0 +1,45 @@
+#group4-logo img{
+    -moz-border-radius: 8px 8px 8px 8px;
+    -webkit-border-radius:8px 8px 8px 8px;
+    border-radius:8px 8px 8px 8px;
+}
+#welcome{
+    text-align: center;
+}
+#password-invalid {
+    margin-top: 40px;
+    text-align: center;
+    color: red;
+    font-size: 16px;
+}
+
+#signup-wrap {
+      height: 191px;
+      margin:0 auto;
+      padding-bottom: auto;
+      width: 555px;
+  }
+#signup {
+    clear: left;
+    width: 461px;
+    height: 200px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 10px;
+    *padding-top: 35px;
+    position: center;
+}
+#signup p {
+    font-size: 26px;
+    margin: 22px 0 25px;
+}
+
+#signup .btn {
+    padding: 10px 33px;
+    font-size: 17px;
+    font-weight: bold;
+    border: 1px solid #999;
+    color: #444;
+    border-radius: 3px;
+}
+

@@ -1,0 +1,17 @@
+<h3>
+    Shared by: <a href="/user/{{ media_object.uploader }}/" >
+        {% if is_user %}You
+        {% else %}{{ media_object.uploader }}
+        {% endif %}
+    </a><br/>
+    Uploaded date: {{ media_object.upload_date }}<br/>
+    Like: <span style="color:#ea5cff;">{{ media_object.voters.count }}</span>
+    {% if not is_voted %}<a href="/vote/{{ media_object_type }}/{{ media_object.id }}"><input type="button" value="Like"/></a>{% endif %}<br/>
+    View: <span style="color:#ea5cff;">{{ media_object.viewers.count }}</span><br/>
+</h3>
+{% if media_object.description %}
+    <h3>Description:</h3>
+    <div class="media_object_description">
+        {{ media_object.description }}
+    </div>
+{% endif %}

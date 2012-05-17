@@ -1,0 +1,19 @@
+.user_media_object_statistic_active{
+    font:bold 18px Arial;
+}
+.user_media_object_statistic{
+    margin:5px 0 5px 0;
+    font:bold 16px Arial;
+}
+
+.avatar{
+    -moz-border-radius:5px 5px 5px 5px;
+    -webkit-border-radius:5px 5px 5px 5px;
+    border-radius:5px 5px 5px 5px;
+}
+
+.friend_avatar{
+    -moz-border-radius:3px 3px 3px 3px;
+    -webkit-border-radius:3px 3px 3px 3px;
+    border-radius:3px 3px 3px 3px;
+}

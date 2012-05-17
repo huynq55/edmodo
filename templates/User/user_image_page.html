@@ -1,0 +1,50 @@
+{% extends "User/base_user_page.html" %}
+{% block title %}{{ user.username }}|Images{% endblock %}
+{% block base_user_external %}
+    <link rel="stylesheet" type="text/css" href="/site_media/css/Media_object/media_objects_page.css"/>
+{% endblock %}
+{% block base_user_content %}
+    {% if not images.object_list.count%}
+        <h3>You haven't uploaded any image</h3>
+    {% else %}
+        <h3>You have uploaded {{ images.object_list.count }} image(s)</h3>
+
+        {% for image in images.object_list %}
+            <div class="media_object_list">
+                <h2><a href="/image/{{ image.id }}">{{ image.title }}</a></h2>
+                <table style="margin: 0 0 5px 0">
+                    <tr>
+                        <th valign="top" style="padding: 8px 5px 5px 5px">
+                            {% if image.image_file %}
+                                <a href="/image/{{ image.id }}"> <img src="{{ image.image_file.url }}" width="100" alt="{{ image.image_file.url }}"/></a>
+                            {% else %}
+                                <a href="/image/{{ image.id }}"> <img src="{{ image.url }}" width="100" alt="{{ image.url }}"/></a>
+                            {% endif %}
+                        </th>
+                        <td valign="top" style="padding: 2px 5px 5px 5px">
+                            <h3>
+                                Shared by: <a href="/user/{{ image.uploader }}/" >You</a><br/>
+                                Uploaded date: {{ image.upload_date }}<br/>
+                                {% if image.public_share %}
+                                    Sharing: Public
+                                    <a href="/set_private/image/{{ image.id }}"><input type="button" value="Private"/></a>
+                                {% else %}
+                                    Sharing: Private
+                                    <a href="/set_public/image/{{ image.id }}"><input type="button" value="Public"/></a>
+                                {% endif %}
+                            </h3>
+                        </td>
+                    </tr>
+                </table>
+                <a href="/image_delete/{{ image.id }}"><input type="button" value="Delete"/></a>
+            </div>
+        {% endfor %}
+
+        {# --------Phan trang------- #}
+        {% with object_holder=images %}
+            {% include "Paginator/paginator.html" %}
+        {% endwith %}
+        {# --------Het phan trang------- #}
+    {% endif %}
+
+{% endblock %}

@@ -1,41 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="/site_media/css/style.css" type="text/css" />
     <script type="text/javascript" src="/site_media/javascript/jquery.js"></script>
-    {% block external %}{% endblock %}
+    <link rel="stylesheet" type='text/css' href="/site_media/bootstrap/css/bootstrap.css"/>
+    <script type="text/javascript" src="/site_media/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" type='text/css' href="/site_media/bootstrap/css/bootstrap-responsive.css"/>
+    <link rel="stylesheet" type='text/css' href="/site_media/css/Base/base.css"/>
+    {% block extra_meta %} {% endblock %}
+
 </head>
 <body>
-    <div id="account_menu">
-        <ul>
-            {% if user.is_authenticated %}
-                <li>Welcome <a href="/user/{{ user.username }}/"> {{ user.username }}</a> !</li>
-                <li><a href="/accounts/logout/">Logout</a></li>
-            {% else %}
-                <li><a href="/accounts/login/">Login|</a></li>
-				<li><a href="/register/">Register</a></li>
-            {% endif %}
-        </ul>
+{% block external %}{% endblock %}
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a href="" class="brand" >Cyber Library</a>
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li><a href="/">Home</a></li>
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">Library <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/books">Books</a></li>
+                                <li><a href="/images">Images</a></li>
+                                <li><a href="/videos">Videos</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/forum">Forum</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                    <form action="/search_all/" class="navbar-search pull-left" method="post">
+                        {% csrf_token %}
+                        <input name="query" type="text" placeholder="Search" class="search-query span3"/>
+                        <input type="hidden" name="next" value="/"/>
+                    </form>
+                    <ul class="nav pull-right">
+                        {% if user.is_authenticated %}
+                            <li>
+                                <a href="/user/{{ user.username }}" style="color:#adff2f;"><b>{{ user.username }}</b></a>
+                            </li>
+                            <li class="divider-vertical"></li>
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="">Account<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="/user/{{ user.username }}/friend_requests">Friend Requests
+                                            {% if user.friend_request_list.count %}(<span style="color:#ff0000;">{{ user.friend_request_list.count }}</span>){% endif %}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        {% load notification_filter %}
+                                        {% load set_var %}
+                                        <a href="/user/{{ user.username }}/notifications">Notifications
+                                            {% set notification = 0 %}
+                                            {% if notification|notification_number:user %}
+                                                (<span style="color:#ff0000;">{{ notification|notification_number:user }}</span>)
+                                            {% endif %}
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li><a href="/accounts/logout">Logout</a></li>
+                                </ul>
+                            </li>
+                            <li class="divider-vertical"></li>
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href=""><img class="icon-cog icon-white"/>Setting<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/user/{{ user.username }}/profile">Change Profile</a></li>
+                                    <li><a href="/user/{{ user.username }}/password_change">Change Password</a></li>
+                                    <li><a href="/user/{{ user.username }}/profile_image_change">Change Avatar</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li><a href="/accounts/login">Login</a></li>
+                            <li class="divider-vertical"></li>
+                            <li><a href="/register">Register</a></li>
+
+                        {% endif %}
+                    </ul>
+                </div><!-- /.nav-collapse -->
+            </div>
+        </div><!-- /navbar-inner -->
     </div>
-
-	<div id="container">
-    
-    	<div id="header">
-        	<h1><a href="index.html">Cyber Library</a></h1>
-            <ul>
-            	<li><a href="/" class="on">Home</a></li>
-                <li><a href="/library/">Library</a></li>
-                <li><a href="/forum/">Forum</a></li>
-                <li><a href="#">Style playground</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <form method="get" action="#">
-            	<p><input type="text" name="search" /><input type="submit" value="Search" class="btn" /></p>
-            </form>
-        </div>
-
-        <div id="content">
-            {% block content %}{% endblock %}
+    <div style="min-height: 450px">
+        {% block content %}{% endblock %}
+    </div>
+    <div class="well" style="bottom:0;">
+        <div id="footer" align="center">
+            <span style="font:bold 16px Arial;">
+            &copy; 2011-2012 Copyright by Group 4&trade; K55CA-UET-VNU<br/>
+            </span>
+            144 Xuan Thuy street, Cau Giay district, Hanoi, Vietnam
         </div>
     </div>
 </body>

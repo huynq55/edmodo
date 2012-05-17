@@ -1,0 +1,37 @@
+{% extends "Media_object/base_media_objects_page.html" %}
+{% block title %}Videos{% endblock %}
+{% block media_objects_page_title%}<h2><span style="color:#1020b5;">Videos</span></h2>{% endblock %}
+{% block media_objects_page_content %}
+    <div class="media_object_list">
+        <table class="table table-bordered media_object_table">
+            <tr>
+                <th style="width:15%">Thumbnail</th>
+                <th style="width:16%">Title</th>
+                <th style="width:12%">Uploader</th>
+                <th style="width:22%">Uploaded Date</th>
+                <th style="width:11%">Sharing</th>
+                <th style="width:12%">Viewers</th>
+                <th>Voters</th>
+            </tr>
+            {% for video in videos.object_list %}
+                <tr>
+                    <td class="mo_thumbnail">
+                        <a href="/video/{{ video.id }}">
+                            <img class="video_thumbnail" src="http://img.youtube.com/vi/{{ video.get_Youtube_video_id }}/2.jpg"
+                                 alt="http://img.youtube.com/vi/{{ video.get_Youtube_video_id }}/2.jpg"/>
+                        </a>
+                    </td>
+                    <td class="mo_title">{{ video.title }}</td>
+                    <td class="mo_uploader"><a href="/user/{{ video.uploader.username }}/">{{ video.uploader.username }}</a></td>
+                    <td class="mo_uploaded_date">{{ video.upload_date }}</td>
+                    <td class="mo_sharing">
+                        {% if video.public_share %}Public
+                        {% else %}Private{% endif %}
+                    </td>
+                    <td class="mo_viewers">{{ video.viewers.count }}</td>
+                    <td class="mo_voters">{{ video.voters.count }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

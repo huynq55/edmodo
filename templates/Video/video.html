@@ -1,0 +1,31 @@
+{% extends "Media_object/base_media_object.html" %}
+{% block title %}Video | {{ video.id }}{% endblock %}
+{% block base_media_object_external %}
+    <link rel="stylesheet" type="text/css" href="/site_media/css/Media_object/media_object_info.css"/>
+{% endblock %}
+{% if not is_shared %}
+    {% block media_object_not_shared %}
+        This video is set to be private.
+        You must be friend with <a href="/user/{{ video.uploader }}">{{ video.uploader }}</a> to view this video
+    {% endblock %}
+{% else %}
+    {% block media_object_title %}{{ video.title }}{% endblock %}
+
+    {% block media_object_content %}
+        <iframe width="640" height="400" src="http://www.youtube.com/embed/{{ video.get_Youtube_video_id }}" frameborder="0" allowfullscreen></iframe>
+    {% endblock %}
+
+    {% block media_object_information %}
+        {% with media_object=video%}
+            {% with media_object_type="video" %}
+                {% include "Media_object/media_object_detail_info.html" %}
+            {% endwith %}
+        {% endwith %}
+    {% endblock %}
+
+    {% block media_object_statistics %}
+        {% with media_object=video %}
+            {% include "Media_object/media_object_statistic.html" %}
+        {% endwith %}
+    {% endblock %}
+{% endif %}

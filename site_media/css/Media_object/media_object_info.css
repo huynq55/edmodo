@@ -1,0 +1,14 @@
+.media_object_description{
+    width:100%;
+    height: auto;
+    min-height: 60px;
+    background-color: #ffffff;
+    border:1px #d4d4d4 solid;
+    padding: 5px 5px 5px 5px;
+
+    font:normal 14px Arial;
+
+    -moz-border-radius:8px 8px 8px 8px;
+    -webkit-border-radius:8px 8px 8px 8px;
+    border-radius:8px 8px 8px 8px;
+}

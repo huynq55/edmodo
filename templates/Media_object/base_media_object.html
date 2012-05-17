@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block external %}
+    <link rel="stylesheet" type="text/css" href="/site_media/css/Media_object/media_object_statistic.css"/>
+    {% block base_media_object_external %}{% endblock %}
+{% endblock %}
+{% block content %}
+    <div class="navbar-inner-background">
+        <div class="row-fluid">
+            {% if not is_shared %}
+                <h4>{% block media_object_not_shared %}{% endblock %}</h4>
+            {% else %}
+                <div class="span9">
+                    <div class="media_object">
+                        <div class="modal" style="position: relative; top: auto; left: auto; margin: 0 auto; z-index: 1">
+                            <div class="modal-header">
+                                <div class="pull-center">
+                                    <h2 style="color: green;">{% block media_object_title %}{% endblock %}</h2>
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="pull-center">
+                                    {% block media_object_content %}{% endblock %}
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="pull-left">
+                                    {% block media_object_information %} {% endblock %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/span-->
+                <div class="span3">
+                    {% block media_object_statistics %} {% endblock %}
+                    <!--/.well -->
+                </div>
+                <!--/span-->
+            {% endif %}
+        </div>
+        <!--/row-->
+        <br/><br/>
+    </div>
+    <br/>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "Media_object/base_media_objects_page.html" %}
+{% block title %}Images{% endblock %}
+{% block media_objects_page_title %}<h2><span style="color:#1020b5;">Images</span></h2>{% endblock %}
+{% block media_objects_page_content %}
+    <div class="media_object_list">
+        <table class="table table-bordered media_object_table">
+            <tr>
+                <th style="width:15%">Thumbnail</th>
+                <th style="width:16%">Title</th>
+                <th style="width:12%">Uploader</th>
+                <th style="width:22%">Uploaded Date</th>
+                <th style="width:11%">Sharing</th>
+                <th style="width:12%">Viewers</th>
+                <th>Voters</th>
+            </tr>
+            {% for image in images.object_list %}
+                <tr>
+                    <td class="mo_thumbnail">
+                        {% if image.image_file %}
+                            <a href="/image/{{ image.id }}">
+                                <img src="{{ image.image_file.url }}" width="100" alt="{{ image.image_file.url }}"/>
+                            </a>
+                        {% else %}
+                            <a href="/image/{{ image.id }}">
+                                <img src="{{ image.url }}" width="100" alt="{{ image.url }}"/>
+                            </a>
+                        {% endif %}
+                    </td>
+                    <td class="mo_title">{{ image.title }} </td>
+                    <td class="mo_uploader"><a href="/user/{{ image.uploader.username }}/">{{ image.uploader.username }}</a></td>
+                    <td class="mo_uploaded_date">{{ image.upload_date }}</td>
+                    <td class="mo_sharing">
+                        {% if image.public_share %}Public
+                        {% else %}Private{% endif %}
+                    </td>
+                    <td class="mo_viewers">{{ image.viewers.count }}</td>
+                    <td class="mo_voters">{{ image.voters.count }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

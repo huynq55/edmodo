@@ -1,0 +1,16 @@
+.voters_active{
+    font:bold 18px Arial;
+}
+.viewers_active{
+    font:bold 18px Arial;
+}
+.viewer_avatar{
+    -moz-border-radius:3px 3px 3px 3px;
+    -webkit-border-radius:3px 3px 3px 3px;
+    border-radius:3px 3px 3px 3px;
+}
+.voter_avatar{
+    -moz-border-radius:3px 3px 3px 3px;
+    -webkit-border-radius:3px 3px 3px 3px;
+    border-radius:3px 3px 3px 3px;
+}

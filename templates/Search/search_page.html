@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block title %}Search{% endblock %}
+{% block external %}
+    <link rel="stylesheet" type="text/css" href="/site_media/css/Search/search.css"/>
+{% endblock %}
+{% block content %}
+    <div class="navbar-inner-background">
+        <div align="center">
+            <form action="/search/" method="get">
+                <table id="search_table" style="border:2px #d32dff solid;">
+                    <tr>
+                        <td>Search Box: </td>
+                        <td>
+                            {{ search_form.query }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Options: </td>
+                        <td>
+                            Book: {{ search_form.book_search }}&nbsp;&nbsp;
+                            Image: {{ search_form.image_search }}&nbsp;&nbsp;
+                            Video: {{ search_form.video_search }}&nbsp;&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="submit" value="Search"></td>
+                    </tr>
+                </table>
+            </form><br/>
+        </div>
+        {% if show_result %}
+            <h3>{{ status }}</h3>
+            <span style="font:bold 14px Arial;">There are total <span style="color:#ff9007;">{{ searched_books|length }}</span> book(s),
+                <span style="color:#ff9007;">{{ searched_images|length }}</span> image(s)
+                and <span style="color:#ff9007;">{{ searched_videos|length }}</span> video(s) matching that search</span>
+            {% load search_highlight_filter %}
+            <div class="row-fluid" style="margin-top: 20px; padding-bottom: 50px;">
+
+                <div class="span4">
+                    <div class="modal" style="position: relative; top: auto; left: auto; margin: 0 auto; z-index: 1">
+                        <div class="modal-header pull-center">
+                            <h2>Books</h2>
+                        </div>
+                        {% if searched_books|length > 0 %}
+                            <div class="modal-body">
+                                <table style="width:100%">
+                                    {% for searched_book in searched_books %}
+                                        <tr>
+                                            <td>
+                                                <span style="font:bold 14px Arial;">{{ forloop.counter }})</span>
+                                            </td>
+                                            <td style="text-align:left;">
+                                                <h4><a href="/book/{{ searched_book.id }}">{{ searched_book.title|search_highlight:query_word_set }}</a></h4>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="span4">
+                    <div class="modal" style="position: relative; top: auto; left: auto; margin: 0 auto; z-index: 1">
+                        <div class="modal-header pull-center">
+                            <h2>Images</h2>
+                        </div>
+                        {% if searched_images|length > 0 %}
+                            <div class="modal-body">
+                                <table style="width:100%">
+                                    {% for searched_image in searched_images %}
+                                        <tr>
+                                            <td>
+                                                <span style="font:bold 14px Arial;">{{ forloop.counter }})</span>
+                                            </td>
+                                            <td style="text-align:left;">
+                                                <h4><a href="/image/{{ searched_image.id }}">{{ searched_image.title|search_highlight:query_word_set }}</a></h4>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="span4">
+                    <div class="modal" style="position: relative; top: auto; left: auto; margin: 0 auto; z-index: 1">
+                        <div class="modal-header pull-center">
+                            <h2>Videos</h2>
+                        </div>
+                        {% if searched_videos|length > 0 %}
+                            <div class="modal-body">
+                                <table style="width:100%">
+                                {% for searched_video in searched_videos %}
+                                    <tr>
+                                        <td>
+                                            <span style="font:bold 14px Arial;">{{ forloop.counter }})</span>
+                                        </td>
+                                        <td  style="text-align:left;">
+                                            <h4><a href="/video/{{ searched_video.id }}">{{ searched_video.title|search_highlight:query_word_set }}</a></h4>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </table>
+                            </div>
+                       {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

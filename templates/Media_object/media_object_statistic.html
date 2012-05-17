@@ -1,0 +1,43 @@
+{% load modulo_filter %}
+<div class="well sidebar-nav" style="margin-bottom: 10px">
+    <ul class="nav nav-list">
+        <li class="viewers_active"><a style="color:#9108ff;">Viewers</a></li>
+        <li class="divider"></li>
+        <table>
+            <tr>
+                {% for viewer in media_object.viewers.all %}
+                    <td style="padding: 2px 2px 2px 2px">
+                        <a href="/user/{{ viewer.username }}" style="text-decoration: none;">
+                            <img class="viewer_avatar" width="40px" style="height:40px;"
+                                 src={{ viewer.user_information.avatar_url }} alt={{ viewer.username }}/>
+                        </a>
+                    </td>
+                    {% if not forloop.counter|mod:4 %}
+                        </tr><tr>
+                    {% endif %}
+                {% endfor %}
+                </tr>
+        </table>
+    </ul>
+</div>
+<div class="well sidebar-nav" style="margin-bottom: 10px">
+    <ul class="nav nav-list">
+        <li class="voters_active"><a style="color:#9108ff;">Voters</a></li>
+        <li class="divider"></li>
+        <table>
+            <tr>
+                {% for voter in media_object.voters.all %}
+                    <td style="padding: 2px 2px 2px 2px">
+                        <a href="/user/{{ voter.username }}" style="text-decoration: none;">
+                            <img class="voter_avatar" width="40px" style="height:40px;"
+                                 src={{ voter.user_information.avatar_url }} alt={{ voter.username }}/>
+                        </a>
+                    </td>
+                    {% if not forloop.counter|mod:4 %}
+                        </tr><tr>
+                    {% endif %}
+                {% endfor %}
+                </tr>
+        </table>
+    </ul>
+</div>

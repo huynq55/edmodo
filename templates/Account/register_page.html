@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Registration{% endblock %}
+{% block external %}
+    <link rel="stylesheet" type="text/css" href="/site_media/css/Account/register.css"/>
+{% endblock %}
+{% block  content %}
+    <div class="modal" style="position: relative; top: auto; left: auto; margin: 0 25% auto; z-index: 1;margin-top:60px">
+        <div class="modal-header">
+            <div class="pull-center" style="color: blue; font-size: 20px; font-weight: bold;"> User Registration</div>
+        </div>
+        <div class="modal-body">
+            <form id="register-form" method="post" action="." style="margin:0 10% auto">
+                <table id="register_table" style="width:100%">
+                    {% csrf_token %}
+                    {{ form.as_table }}
+                </table>
+                <div align="center" style="margin-top:5px">
+                    <button type="submit" class="btn">Register</button>
+                </div>
+            </form>
+            <span style="color:#ff0000;font:normal 18px Arial">{{ status }}</span>
+        </div>
+    </div>
+    <br/>
+{% endblock %}

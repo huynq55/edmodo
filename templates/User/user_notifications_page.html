@@ -1,0 +1,25 @@
+{% extends "User/base_user_page.html" %}
+{% block title %}{{ user.username }}|Notifications{% endblock %}
+{% block base_user_content %}
+    {% if total_notifications.object_list|length == 0 %}
+        <h3>You have no notification</h3>
+    {% else %}
+        <h3>You have {{ total_notifications.object_list|length }} notification(s)</h3>
+        {% for post , participated_thread in total_notifications.object_list %}
+            <div class="notification">
+                <h4><a href="/user/{{ post.creator.username }}" style="color:#ff0000;">{{ post.creator.username }}</a>
+                    has posted in <a href="/thread/{{ post.thread.id }}">{{ post.thread.title }}</a>:</h4>
+                {{ post.content }}<br/>
+                at <b>{{ post.created }}</b><br>
+                Last modify: <b>{{ participated_thread.last_modify }}</b>
+            </div>
+            <br/>
+        {% endfor %}
+        {# --------Phan trang------- #}
+        {% with object_holder=total_notifications %}
+            {% include "Paginator/paginator.html" %}
+        {% endwith %}
+        {# --------Het phan trang------- #}
+    {% endif %}
+
+{% endblock %}

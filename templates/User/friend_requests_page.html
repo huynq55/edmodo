@@ -1,0 +1,19 @@
+{% extends "User/base_user_page.html" %}
+{% block title %}{{ user.username }}|Friend Requests{% endblock %}
+{% block base_user_content %}
+    {% if not friend_request_list %}
+        <h3>You have no friend request</h3>
+    {% else %}
+        <h3>You have {{ friend_request_list.count }} friend request(s)</h3>
+        {% for friend_request in friend_request_list %}
+            <div class="friend_request">
+                <h4>
+                <a href="/user/{{ friend_request.from_user.username }}" style="color:#ff0000;">{{ friend_request.from_user }}</a> wants to be friend with you
+                <a href="/user/{{ user.username }}/friend_accept?id={{ friend_request.from_user.id }}"><input type="button" value="Accept"></a>
+                <a href="/user/{{ user.username }}/friend_decline?id={{ friend_request.from_user.id }}"><input type="button" value="Decline"></a>
+                </h4>
+            </div>
+            <br/>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

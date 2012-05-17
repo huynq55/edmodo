@@ -1,0 +1,10 @@
+label{
+    margin-right:5px;
+    float:left;
+    display:inline-block;
+}
+input{
+    margin-right:10px;
+    display:inline-block;
+    float:left
+}

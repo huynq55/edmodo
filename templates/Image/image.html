@@ -1,0 +1,36 @@
+{% extends "Media_object/base_media_object.html" %}
+{% block title %}Image | {{ image.id }}{% endblock %}
+{% block base_media_object_external %}
+    <link rel="stylesheet" type="text/css" href="/site_media/css/Media_object/media_object_info.css"/>
+{% endblock %}
+{% if not is_shared %}
+    {% block media_object_not_shared %}
+        This image is set to be private.
+        You must be friend with <a href="/user/{{ image.uploader }}">{{ image.uploader }}</a> to view this image
+    {% endblock %}
+{% else %}
+    {% block media_object_title %}{{ image.title }}{% endblock %}
+
+    {% block media_object_content %}
+        {% if image.image_file %}
+            <a href="{{ image.image_file.url }}"> <img src="{{ image.image_file.url }}"
+                                                       alt="{{ image.image_file.url }}"/></a>
+        {% else %}
+            <a href="{{ image.url }}"> <img src="{{ image.url }}" alt="{{ image.url }}"/></a>
+        {% endif %}
+    {% endblock %}
+
+    {% block media_object_information %}
+        {% with media_object=image %}
+            {% with media_object_type="image" %}
+                {% include "Media_object/media_object_detail_info.html" %}
+            {% endwith %}
+        {% endwith %}
+    {% endblock %}
+
+    {% block media_object_statistics %}
+        {% with media_object=image %}
+            {% include "Media_object/media_object_statistic.html" %}
+        {% endwith %}
+    {% endblock %}
+{% endif %}
