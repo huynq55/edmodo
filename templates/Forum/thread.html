@@ -22,8 +22,11 @@
                             <td class="post_table_field_2">
                                 <div class="well sidebar-nav post_frame">
                                     <ul class="nav nav-list" style="background-color: #c7ff8e;">
-                                        <li class="post_header">
-                                            Posted at: {{ post.created }}
+                                        <li class="post_header" style="text-align: right">
+                                            <div  class="post_creator_name" style="float:left;">
+                                                Posted by: <span style="color:#a841ff;">{{ post.creator.username }}</span>
+                                            </div>
+                                            Posted at: <span style="color:#ff0000;">{{ post.created }}</span>
                                         </li>
                                     </ul>
                                     <div class="post_body">

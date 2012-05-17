@@ -22,9 +22,7 @@
     border-radius:3px 3px 3px 3px;
 }
 .post_header{
-    text-align: right;
     padding:5px 5px 5px 5px;
-    color: #ff0000;
     font:bold 16px Arial;
 }
 .post_body{

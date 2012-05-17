@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="login false.html">Login false</a></td></tr>
+<tr><td><a href="Sign up true.html">Sign up true</a></td></tr>
+<tr><td><a href="sign up false.html">sign up false</a></td></tr>
+<tr><td><a href="login.html">Login true</a></td></tr>
+<tr><td><a href="up book.html">up book</a></td></tr>
+<tr><td><a href="show book.html">show my books</a></td></tr>
+<tr><td><a href="up image.html">up image</a></td></tr>
+<tr><td><a href="add image.html">add link image</a></td></tr>
+<tr><td><a href="image pages.html">my images page</a></td></tr>
+<tr><td><a href="add link video.html">add link video</a></td></tr>
+<tr><td><a href="videos page.html">videos page</a></td></tr>
+<tr><td><a href="Books page of all user.html">Books page of all user</a></td></tr>
+<tr><td><a href="images page of all user.html">Images page of all user</a></td></tr>
+<tr><td><a href="videos page of all user.html">Videos page of all user</a></td></tr>
+<tr><td><a href="Search.html">Search</a></td></tr>
+<tr><td><a href="Forum.html">Open Forum page</a></td></tr>
+<tr><td><a href="Create Thread.html">Create Thread</a></td></tr>
+<tr><td><a href="Post comment.html">Post comment 1</a></td></tr>
+<tr><td><a href="Post comment 2.html">Post comment 2</a></td></tr>
+<tr><td><a href="change infomation.html">Change infomation</a></td></tr>
+<tr><td><a href="chang password.html">Chang password</a></td></tr>
+<tr><td><a href="login after change pass.html">Login after chang pass</a></td></tr>
+<tr><td><a href="update avatar.html">update avatar</a></td></tr>
+<tr><td><a href="make friend with demo.html">make friend with demo</a></td></tr>
+<tr><td><a href="logout.html">Logout</a></td></tr>
+<tr><td><a href="accept or decline friend request.html">accept of decline Friend request</a></td></tr>
+</tbody></table>
+</body>
+</html>
